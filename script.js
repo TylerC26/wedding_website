@@ -401,8 +401,7 @@ function updateLightboxInfo(image) {
     `;
     
     info.innerHTML = `
-        <div>${image.title}</div>
-        <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">
+        <div style="font-size: 0.9rem; opacity: 0.9;">
             ${currentImageIndex + 1} / ${galleryImages.length}
         </div>
     `;
