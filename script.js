@@ -508,9 +508,6 @@ function initializePhotoUpload() {
                         <div class="selected-photo-name">${file.name}</div>
                         <div class="selected-photo-size">${fileSize} MB</div>
                     </div>
-                    <button class="remove-photo-btn" data-index="${index}">
-                        <i class="fas fa-times"></i>
-                    </button>
                 `;
                 
                 selectedPhotosGrid.appendChild(photoItem);
@@ -523,9 +520,6 @@ function initializePhotoUpload() {
         
         selectedPhotosPreview.style.display = 'block';
         uploadArea.style.display = 'none';
-        
-        // Add event listeners for remove buttons
-        addRemoveButtonListeners();
     }
 
     function hideSelectionPreview() {
@@ -533,28 +527,6 @@ function initializePhotoUpload() {
         uploadArea.style.display = 'block';
         selectedFiles = [];
         fileInput.value = ''; // Clear file input
-    }
-
-    function addRemoveButtonListeners() {
-        const removeButtons = document.querySelectorAll('.remove-photo-btn');
-        removeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                removePhoto(index);
-            });
-        });
-    }
-
-    function removePhoto(index) {
-        // Remove file from selectedFiles array
-        selectedFiles.splice(index, 1);
-        
-        // Rebuild the preview with updated files
-        if (selectedFiles.length === 0) {
-            hideSelectionPreview();
-        } else {
-            showSelectionPreview(selectedFiles);
-        }
     }
 
     function uploadFiles(files) {

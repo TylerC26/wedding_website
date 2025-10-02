@@ -909,34 +909,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.remove-photo-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: rgba(231, 76, 60, 0.9);
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.remove-photo-btn:hover {
-    background: rgba(231, 76, 60, 1);
-    transform: scale(1.1);
-}
-
-.remove-photo-btn i {
-    font-size: 10px;
-}
-
 .selected-photo-name {
     white-space: nowrap;
     overflow: hidden;
