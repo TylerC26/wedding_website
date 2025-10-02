@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelle & Tyler - Wedding Day (v1.41)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Dynalight&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css?v=20">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e8b4b8">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="couple-names">Michelle & Tyler</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#itinerary" class="nav-link">Itinerary</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transportation" class="nav-link">Transportation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#photo-upload" class="nav-link">Upload Photos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#rsvp" class="nav-link">RSVP</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title dynalight-regular">Michelle & Tyler</h1>
+            <p class="hero-subtitle">are getting married!</p>
+            <div class="hero-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>January 31, 2026</span>
+            </div>
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Hong Kong</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#rsvp" class="btn btn-primary">RSVP Now</a>
+                <a href="#gallery" class="btn btn-secondary">View Gallery</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Love Story</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                A beautiful journey through moments of joy, adventure, and togetherness
+            </p>
+            
+            <div class="gallery-carousel" data-aos="fade-up" data-aos-delay="400">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_1.jpeg" alt="Wedding moment 1" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_2.jpeg" alt="Wedding moment 2" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_5.jpeg" alt="Wedding moment 3" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_6.jpeg" alt="Wedding moment 4" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_7.JPG" alt="Wedding moment 5" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_8.JPG" alt="Wedding moment 6" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_11.JPG" alt="Wedding moment 7" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_12.JPG" alt="Wedding moment 8" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/gallery_14.JPG" alt="Wedding moment 9" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <button class="dot active" data-slide="0"></button>
+                    <button class="dot" data-slide="1"></button>
+                    <button class="dot" data-slide="2"></button>
+                    <button class="dot" data-slide="3"></button>
+                    <button class="dot" data-slide="4"></button>
+                    <button class="dot" data-slide="5"></button>
+                    <button class="dot" data-slide="6"></button>
+                    <button class="dot" data-slide="7"></button>
+                    <button class="dot" data-slide="8"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Day Itinerary Section -->
+    <section id="itinerary" class="itinerary-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Wedding Day Timeline</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Join us for a day filled with love, laughter, and celebration
+            </p>
+            
+            <div class="timeline" data-aos="fade-up" data-aos-delay="400">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-info">
+                            <h3>Chinese Tea Ceremony</h3>
+                            <p class="timeline-time">7:30 AM - 8:30 AM</p>
+                            <p class="timeline-description">
+                                Traditional Chinese tea ceremony to honor our families and receive blessings from our elders. 
+                                Private Event, close family only.
+                            </p>
+                            <p class="timeline-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Harbour Grand Hong Kong, North Point
+                            </p>
+                        </div>
+                        <div class="timeline-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.709099796326!2d114.18927097667256!3d22.28900667969469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040102019e81d5%3A0x5226cc83d1ecd72!2sHarbour%20Grand%20Hong%20Kong!5e0!3m2!1sen!2shk!4v1759289244841!5m2!1sen!2shk" width="100%" height="220" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-info">
+                            <h3>Wedding Ceremony</h3>
+                            <p class="timeline-time">11:00 AM - 12:00 PM</p>
+                            <p class="timeline-description">
+                                Join us for our wedding ceremony under the love of God. 
+                                Please arrive 15 minutes early for seating.
+                            </p>
+                            <p class="timeline-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Béthanie Church - The Academy's Landmark Heritage Campus
+                            </p>
+                        </div>
+                        <div class="timeline-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.430638912858!2d114.13295427667201!3d22.261671379714393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403fff1a0b82c73%3A0x40737dca5cc56b2a!2sB%C3%A9thanie%20-%20The%20Academy&#39;s%20Landmark%20Heritage%20Campus!5e0!3m2!1sen!2shk!4v1759289220302!5m2!1sen!2shk" width="100%" height="220" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-info">
+                            <h3>Cocktail Hour</h3>
+                            <p class="timeline-time">5:30 PM - 8:00 PM</p>
+                            <p class="timeline-description">
+                                Enjoy cocktails, hors d'oeuvres, and mingling while we take photos. 
+                                Live music will be provided.
+                            </p>
+                            <p class="timeline-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Marina Suite, Aberdeen Marina Club
+                            </p>
+                        </div>
+                        <div class="timeline-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.90426448268!2d114.1615796766718!3d22.243710879727278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404001e34baee99%3A0x90ec879ffc1392a6!2sAberdeen%20Marina%20Club!5e0!3m2!1sen!2shk!4v1759289034628!5m2!1sen!2shk" width="100%" height="220" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                    <div class="timeline-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-info">
+                            <h3>Reception Dinner</h3>
+                            <p class="timeline-time">8:00 PM - 11:00 PM</p>
+                            <p class="timeline-description">
+                                Traditional Chinese bouqet, free flow drinks.
+                                Please note your dietary preferences in your RSVP.
+                            </p>
+                            <p class="timeline-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Grand Ballroom, Aberdeen Marina Club
+                            </p>
+                        </div>
+                        <div class="timeline-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.90426448268!2d114.1615796766718!3d22.243710879727278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404001e34baee99%3A0x90ec879ffc1392a6!2sAberdeen%20Marina%20Club!5e0!3m2!1sen!2shk!4v1759289034628!5m2!1sen!2shk" width="100%" height="220" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Transportation Section -->
+    <section id="transportation" class="transportation-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Getting There</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Everything you need to know about transportation and parking
+            </p>
+            
+            <div class="transportation-grid" data-aos="fade-up" data-aos-delay="400">
+                <div class="transportation-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Parking Information</h3>
+                    <ul class="parking-info">
+                        <li><i class="fas fa-check"></i> Complimentary Self-parking available at Aberdeen Marina Club only</li>
+                        <li><i class="fas fa-check"></i> Please let us know your car plate number in advance</li>
+                        <li><i class="fas fa-check"></i> Béthanie has limited parking spaces, parking is not available for guests.</li>
+                    </ul>
+                </div>
+                
+                <div class="transportation-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Shuttle Service</h3>
+                    <p>Complimentary shuttle service available:</p>
+                    <ul class="shuttle-info">
+                        <li><strong>Central MTR Station → Béthanie:</strong></li>
+                        <li>Departure at 11:30 AM</li>
+                        <li><strong>Aberdeen Marina Club → Central MTR Station:</strong></li>
+                        <li>Departure at 10:30 PM, 11:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div class="transportation-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <h3>MTR</h3>
+                    <p>The closest MTR station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club.</p>
+                    <div class="mtr-image-container">
+                        <img src="images/mtr_map.png" alt="MTR Map to Aberdeen Marina Club" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Upload Section -->
+    <section id="photo-upload" class="photo-upload-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Share Your Photos</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Help us capture all the special moments by uploading your photos from the wedding
+            </p>
+            
+                <div class="upload-container" data-aos="fade-up" data-aos-delay="400">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop your photos here</h3>
+                        <p>or click to browse files</p>
+                        <span class="upload-formats">Supports: JPG, PNG, GIF (Max 10MB each)</span>
+                    </div>
+                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="selected-photos-preview" id="selected-photos-preview" style="display: none;">
+                    <h4>Selected Photos:</h4>
+                    <div class="selected-photos-grid" id="selected-photos-grid">
+                        <!-- Selected photo previews will appear here -->
+                    </div>
+                    <div class="upload-actions">
+                        <button class="btn btn-secondary" id="cancel-upload">Cancel</button>
+                        <button class="btn btn-primary" id="confirm-upload">
+                            <i class="fas fa-upload"></i>
+                            Upload Photos
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="upload-progress" id="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">0%</span>
+                </div>
+                
+                <div class="uploaded-photos" id="uploaded-photos">
+                    <!-- Uploaded photos will appear here -->
+                </div>
+                
+                <div class="upload-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Photos will be moderated before appearing in the gallery. Please upload appropriate content only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">RSVP</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Please respond by January 1st, 2026
+            </p>
+            
+            <div class="rsvp-container" data-aos="fade-up" data-aos-delay="400">
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message for the Couple</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Share a special message, memory, or well wishes..."></textarea>
+                    </div>
+                    
+                    <div class="form-group inline">
+                        <label for="attendance">Will you be attending? *</label>
+                        <div class="attendance-toggle">
+                            <input type="checkbox" id="attendance" name="attendance" class="toggle-input">
+                            <label for="attendance" class="toggle-label">
+                                <span class="toggle-text">No</span>
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text">Yes</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group inline">
+                        <label for="side">Groom or Bride Side? *</label>
+                        <div class="side-toggle">
+                            <input type="checkbox" id="side" name="side" class="toggle-input">
+                            <label for="side" class="toggle-label">
+                                <span class="toggle-text">Bride</span>
+                                <span class="toggle-text">Groom</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+            <div class="form-group inline">
+                <label for="guests">Number of Guests *</label>
+                <select id="guests" name="guests" class="guest-dropdown">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                </select>
+            </div>
+                    
+                    <div class="form-group">
+                        <label for="dietary">Dietary Restrictions or Allergies</label>
+                        <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know of any dietary restrictions or allergies..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="carplate">Car Plate Number (if driving)</label>
+                        <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i>
+                        Send RSVP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Michelle & Tyler</h3>
+                    <p>Thank you for being part of our special day!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> michelletyler2267@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 6092-4199</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Michelle & Tyler Wedding. Made with ❤️ for our special day.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-nav">
+                <button id="lightbox-prev" class="lightbox-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="lightbox-next" class="lightbox-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RSVP Success Modal -->
+    <div id="rsvp-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <i class="fas fa-check-circle"></i>
+                <h3>RSVP Received!</h3>
+                <p>Thank you for your response. We can't wait to celebrate with you!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <script src="script.js?v=41"></script>
+</body>
+</html>
