@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Dynalight", cursive;
     font-size: 3.75rem;
     text-align: center;
+    margin-top: 60px;
     margin-bottom: 1rem;
     color: #2c3e50;
     font-weight: 400;
@@ -210,17 +211,21 @@ h1, h2, h3, h4, h5, h6 {
     background: #2c3e50;
 }
 
-/* Hero Section */
-.hero {
-    display: block;
-    position: relative;
-    margin: 0;
+/* Wedding Card Section */
+.wedding-card {
     padding: 0;
-    line-height: 0;
-    font-size: 0;
+    margin: 0;
+    background: white;
+    position: relative;
 }
 
-.hero-svg {
+.wedding-card .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.wedding-card-svg {
     width: 100%;
     height: auto;
     display: block;
@@ -231,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gallery Section - Grid Layout */
 .gallery-section {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     margin: 0;
     background: #f8f9fa;
     position: relative;
@@ -293,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Itinerary Section */
 .itinerary-section {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     background: white;
 }
 
@@ -450,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Transportation Section */
 .transportation-section {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     background: #f8f9fa;
 }
 
@@ -552,7 +557,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Photo Upload Section */
 .photo-upload-section {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     background: white;
 }
 
@@ -809,7 +814,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* RSVP Section */
 .rsvp-section {
-    padding: 100px 0;
+    padding: 0 0 100px 0;
     background: #f8f9fa;
 }
 
@@ -1277,11 +1282,6 @@ h1, h2, h3, h4, h5, h6 {
 
     .nav-menu.active {
         left: 0;
-    }
-
-    .hero-cta {
-        flex-direction: column;
-        align-items: center;
     }
 
     .section-title {
