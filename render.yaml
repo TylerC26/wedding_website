@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: wedding-website
+    env: static
+    buildCommand: echo "No build needed - using dist folder"
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+

@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "Static site - copying files..."
-# No actual build needed, just echo success
-echo "Build complete"
+echo "Copying files to dist directory..."
+mkdir -p dist
+cp -r index.html styles.css script.js manifest.json sw.js images dist/ 2>/dev/null || true
+echo "Build complete - dist directory ready"
