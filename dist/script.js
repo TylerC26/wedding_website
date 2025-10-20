@@ -103,23 +103,18 @@ function initializeNavigation() {
     });
 }
 
-// Enhanced Gallery functionality with modern collage support
+// Enhanced Gallery functionality with grid layout
 function initializeGallery() {
-    const carouselTrack = document.getElementById('carousel-track');
-    const dots = document.querySelectorAll('.dot');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
-    let currentSlide = 0;
-    const totalSlides = dots.length;
-
     // Populate gallery images array
-    const slides = document.querySelectorAll('.carousel-slide');
-    slides.forEach((slide, index) => {
-        const img = slide.querySelector('img');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((item, index) => {
+        const img = item.querySelector('img');
         galleryImages.push({
             src: img.src,
             alt: img.alt,
@@ -127,78 +122,10 @@ function initializeGallery() {
         });
 
         // Add click event to open lightbox
-        slide.addEventListener('click', function() {
+        item.addEventListener('click', function() {
             openLightbox(index);
         });
     });
-
-    // Carousel navigation functions
-    function updateCarousel() {
-        const translateX = -currentSlide * 100;
-        carouselTrack.style.transform = `translateX(${translateX}%)`;
-        
-        // Update dots
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-    }
-
-    // Dot navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentSlide = index;
-            updateCarousel();
-        });
-    });
-
-    // Auto-play carousel
-    setInterval(nextSlide, 4000);
-
-    // Touch/swipe support for mobile
-    let startX = 0;
-    let startY = 0;
-    let isDragging = false;
-
-    carouselTrack.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        isDragging = true;
-    });
-
-    carouselTrack.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-    });
-
-    carouselTrack.addEventListener('touchend', (e) => {
-        if (!isDragging) return;
-        isDragging = false;
-
-        const endX = e.changedTouches[0].clientX;
-        const endY = e.changedTouches[0].clientY;
-        const diffX = startX - endX;
-        const diffY = startY - endY;
-
-        // Only trigger if horizontal swipe is greater than vertical
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            if (diffX > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-        }
-    });
-
 
     // Enhanced Lightbox controls
     lightboxClose.addEventListener('click', closeLightbox);
@@ -269,9 +196,9 @@ function initializeGallery() {
         }
     }
 
-    // Add image loading animation for carousel slides
-    slides.forEach(slide => {
-        const img = slide.querySelector('img');
+    // Add image loading animation for gallery items
+    galleryItems.forEach(item => {
+        const img = item.querySelector('img');
         
         img.addEventListener('load', function() {
             this.style.opacity = '1';
@@ -283,7 +210,7 @@ function initializeGallery() {
         });
     });
 
-    // Lazy loading enhancement for carousel
+    // Lazy loading enhancement for gallery
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -301,8 +228,8 @@ function initializeGallery() {
             threshold: 0.1
         });
 
-        slides.forEach(slide => {
-            const img = slide.querySelector('img');
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
             if (img.dataset.src) {
                 imageObserver.observe(img);
             }
@@ -401,7 +328,7 @@ function updateLightboxInfo(image) {
     `;
     
     info.innerHTML = `
-        <div style="font-size: 0.9rem; opacity: 0.9;">
+        <div style="font-size: 0.9rem; opacity: 0.9; font-weight: 500;">
             ${currentImageIndex + 1} / ${galleryImages.length}
         </div>
     `;
@@ -825,7 +752,7 @@ function initializeScrollEffects() {
     }, observerOptions);
 
     // Observe elements for fade-in effect
-    document.querySelectorAll('.timeline-item, .transportation-card, .carousel-slide').forEach(el => {
+    document.querySelectorAll('.timeline-item, .transportation-card, .gallery-item').forEach(el => {
         observer.observe(el);
     });
 }
