@@ -726,14 +726,14 @@ function initializeSmoothScrolling() {
 
 // Scroll effects
 function initializeScrollEffects() {
-    // Parallax effect for hero section
+    // Parallax effect for wedding card section
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
+        const weddingCard = document.querySelector('.wedding-card');
         const rate = scrolled * -0.5;
         
-        if (hero) {
-            hero.style.transform = `translateY(${rate}px)`;
+        if (weddingCard) {
+            weddingCard.style.transform = `translateY(${rate}px)`;
         }
     });
 
