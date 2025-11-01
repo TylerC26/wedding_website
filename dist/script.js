@@ -103,29 +103,138 @@ function initializeNavigation() {
     });
 }
 
-// Enhanced Gallery functionality with grid layout
+// Enhanced Carousel Gallery - Shows 3 images with center emphasis
 function initializeGallery() {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const btnLeft = document.querySelector('.carousel-btn-left');
+    const btnRight = document.querySelector('.carousel-btn-right');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
-    // Populate gallery images array
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach((item, index) => {
-        const img = item.querySelector('img');
+    // Carousel state
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    // Populate gallery images array for lightbox
+    slides.forEach((slide, index) => {
+        const img = slide.querySelector('img');
         galleryImages.push({
             src: img.src,
             alt: img.alt,
             title: img.alt
         });
 
-        // Add click event to open lightbox
-        item.addEventListener('click', function() {
+        // Click slide to open lightbox
+        slide.addEventListener('click', function() {
             openLightbox(index);
         });
     });
+
+    // Update carousel position and styling
+    function updateCarousel() {
+        // Remove active class from all slides first
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Add active class to current slide
+        slides[currentIndex].classList.add('active');
+        
+        // Get responsive slide width based on window size
+        let baseSlideWidth = 400;
+        let gap = 30;
+        const windowWidth = window.innerWidth;
+        
+        if (windowWidth <= 480) {
+            baseSlideWidth = 220;
+            gap = 15;
+        } else if (windowWidth <= 768) {
+            baseSlideWidth = 280;
+            gap = 20;
+        } else if (windowWidth <= 1024) {
+            baseSlideWidth = 350;
+            gap = 25;
+        }
+        
+        // Position each slide relative to the active one
+        slides.forEach((slide, index) => {
+            const position = index - currentIndex;
+            // Calculate offset: each slide's width + gap
+            const offset = position * (baseSlideWidth + gap);
+            
+            // Apply individual transform to each slide
+            if (index === currentIndex) {
+                // Active (center) slide
+                slide.style.transform = `translateX(${offset}px) scale(1.4)`;
+                slide.style.opacity = '1';
+                slide.style.filter = 'brightness(1)';
+                slide.style.zIndex = '100';
+            } else {
+                // Side slides
+                slide.style.transform = `translateX(${offset}px) scale(0.8)`;
+                slide.style.opacity = '0.6';
+                slide.style.filter = 'brightness(0.7)';
+                slide.style.zIndex = '1';
+            }
+        });
+    }
+
+    // Navigate carousel
+    function navigateCarousel(direction) {
+        currentIndex += direction;
+        
+        // Loop around
+        if (currentIndex < 0) {
+            currentIndex = totalSlides - 1;
+        } else if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+        
+        updateCarousel();
+    }
+
+    // Button event listeners
+    btnLeft.addEventListener('click', () => navigateCarousel(-1));
+    btnRight.addEventListener('click', () => navigateCarousel(1));
+
+    // Keyboard navigation for carousel
+    document.addEventListener('keydown', function(e) {
+        if (lightbox.style.display !== 'flex') {
+            if (e.key === 'ArrowLeft') {
+                navigateCarousel(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateCarousel(1);
+            }
+        }
+    });
+
+    // Touch/swipe support for carousel on mobile
+    let carouselStartX = 0;
+    let carouselEndX = 0;
+
+    track.addEventListener('touchstart', function(e) {
+        carouselStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function(e) {
+        carouselEndX = e.changedTouches[0].clientX;
+        handleCarouselSwipe();
+    }, { passive: true });
+
+    function handleCarouselSwipe() {
+        const threshold = 50;
+        const diff = carouselStartX - carouselEndX;
+
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                navigateCarousel(1); // Swipe left - next
+            } else {
+                navigateCarousel(-1); // Swipe right - previous
+            }
+        }
+    }
 
     // Enhanced Lightbox controls
     lightboxClose.addEventListener('click', closeLightbox);
@@ -143,7 +252,7 @@ function initializeGallery() {
         }
     });
 
-    // Enhanced keyboard navigation
+    // Lightbox keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (lightbox.style.display === 'flex') {
             switch(e.key) {
@@ -164,7 +273,7 @@ function initializeGallery() {
         }
     });
 
-    // Enhanced touch/swipe support for mobile
+    // Lightbox touch/swipe support
     let lightboxStartX = 0;
     let lightboxEndX = 0;
     let lightboxStartY = 0;
@@ -178,15 +287,14 @@ function initializeGallery() {
     lightbox.addEventListener('touchend', function(e) {
         lightboxEndX = e.changedTouches[0].clientX;
         lightboxEndY = e.changedTouches[0].clientY;
-        handleSwipe();
+        handleLightboxSwipe();
     });
 
-    function handleSwipe() {
+    function handleLightboxSwipe() {
         const threshold = 50;
         const diffX = lightboxStartX - lightboxEndX;
         const diffY = lightboxStartY - lightboxEndY;
 
-        // Only handle horizontal swipes if they're more significant than vertical
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
             if (diffX > 0) {
                 navigateLightbox(1); // Swipe left - next image
@@ -196,45 +304,27 @@ function initializeGallery() {
         }
     }
 
-    // Add image loading animation for gallery items
-    galleryItems.forEach(item => {
-        const img = item.querySelector('img');
+    // Initialize carousel - set first slide as active
+    // Ensure slides are loaded before calculating positions
+    if (slides.length > 0) {
+        // Set initial active state
+        slides[0].classList.add('active');
         
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        img.addEventListener('error', function() {
-            this.style.opacity = '0.5';
-            this.alt = 'Image failed to load';
-        });
-    });
-
-    // Lazy loading enhancement for gallery
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                    }
-                    observer.unobserve(img);
-                }
+        // Wait for images to load before positioning
+        const firstImage = slides[0].querySelector('img');
+        if (firstImage.complete) {
+            updateCarousel();
+        } else {
+            firstImage.addEventListener('load', function() {
+                updateCarousel();
             });
-        }, {
-            rootMargin: '50px 0px',
-            threshold: 0.1
-        });
-
-        galleryItems.forEach(item => {
-            const img = item.querySelector('img');
-            if (img.dataset.src) {
-                imageObserver.observe(img);
-            }
-        });
+            // Fallback if image is already cached
+            setTimeout(updateCarousel, 100);
+        }
     }
+
+    // Handle window resize to recalculate positions
+    window.addEventListener('resize', updateCarousel);
 }
 
 function openLightbox(index) {
@@ -752,7 +842,7 @@ function initializeScrollEffects() {
     }, observerOptions);
 
     // Observe elements for fade-in effect
-    document.querySelectorAll('.timeline-item, .transportation-card, .gallery-item').forEach(el => {
+    document.querySelectorAll('.timeline-item, .transportation-card, .carousel-slide').forEach(el => {
         observer.observe(el);
     });
 }
