@@ -35,6 +35,9 @@ function initializeApp() {
     // Initialize navigation
     initializeNavigation();
     
+    // Initialize timeline and transportation cards
+    initializeTimeline();
+    
     // Initialize gallery
     initializeGallery();
     
@@ -100,6 +103,52 @@ function initializeNavigation() {
                 link.classList.add('active');
             }
         });
+    });
+}
+
+// Timeline and Transportation card collapsible functionality for mobile
+function initializeTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const transportationCards = document.querySelectorAll('.transportation-card');
+    
+    // Timeline items
+    timelineItems.forEach(item => {
+        const header = item.querySelector('.timeline-header');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Only toggle on mobile (768px and below)
+                if (window.innerWidth <= 768) {
+                    item.classList.toggle('expanded');
+                }
+            });
+        }
+    });
+    
+    // Transportation cards
+    transportationCards.forEach(card => {
+        const header = card.querySelector('.card-header');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Only toggle on mobile (768px and below)
+                if (window.innerWidth <= 768) {
+                    card.classList.toggle('expanded');
+                }
+            });
+        }
+    });
+    
+    // Handle window resize - ensure all items are expanded on desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            timelineItems.forEach(item => {
+                item.classList.remove('expanded');
+            });
+            transportationCards.forEach(card => {
+                card.classList.remove('expanded');
+            });
+        }
     });
 }
 

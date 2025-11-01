@@ -46,8 +46,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.75rem;
     text-align: center;
     margin-top: 60px;
-    margin-bottom: 1rem;
-    color: #2c3e50;
+    margin-bottom: 2rem;
+    color: #8ab88a;
     font-weight: 400;
 }
 
@@ -551,7 +551,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 15px;
 }
 
-/* Mobile responsive */
+/* Collapsible header and details structure */
+.timeline-header, .card-header {
+    cursor: pointer;
+}
+
+.timeline-details, .card-details {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Mobile responsive - Collapsible timeline and cards */
 @media (max-width: 768px) {
     .timeline {
         max-width: 100%;
@@ -561,10 +571,75 @@ h1, h2, h3, h4, h5, h6 {
     .timeline-content {
         max-width: 100%;
         gap: 20px;
+        padding: 20px;
+        transition: padding 0.3s ease;
+    }
+    
+    /* Reduce padding when collapsed */
+    .timeline-item:not(.expanded) .timeline-content {
+        padding: 20px;
+    }
+    
+    /* Make headers clickable with indicator */
+    .timeline-header, .card-header {
+        position: relative;
+        padding-bottom: 0;
+    }
+    
+    .timeline-header::after, .card-header::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 1.2rem;
+        color: #b8d4b8;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Collapsed state - hide details */
+    .timeline-item:not(.expanded) .timeline-details,
+    .transportation-card:not(.expanded) .card-details {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+    }
+    
+    /* Expanded state - show details */
+    .timeline-item.expanded .timeline-details,
+    .transportation-card.expanded .card-details {
+        max-height: 1000px;
+        opacity: 1;
+        margin-top: 15px;
+    }
+    
+    /* Rotate arrow when expanded */
+    .timeline-item.expanded .timeline-header::after,
+    .transportation-card.expanded .card-header::after {
+        transform: rotate(180deg);
     }
     
     .timeline-map iframe {
         height: 180px;
+    }
+    
+    /* Card specific styles */
+    .transportation-card:not(.expanded) {
+        padding: 20px;
+    }
+}
+
+/* Desktop - always show details */
+@media (min-width: 769px) {
+    .timeline-header::after, .card-header::after {
+        display: none;
+    }
+    
+    .timeline-details, .card-details {
+        max-height: none !important;
+        opacity: 1 !important;
+        margin-top: 15px;
     }
 }
 
@@ -572,6 +647,11 @@ h1, h2, h3, h4, h5, h6 {
 .transportation-section {
     padding: 0 0 100px 0;
     background: #f8f9fa;
+}
+
+.transportation-section .section-title {
+    margin-top: 0;
+    padding-top: 60px;
 }
 
 .transportation-grid {
