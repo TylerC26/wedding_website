@@ -210,17 +210,46 @@ function initializeGallery() {
         }
     });
 
-    // Touch/swipe support for carousel on mobile
+    // Touch/swipe support for carousel on mobile with scroll lock
     let carouselStartX = 0;
+    let carouselStartY = 0;
     let carouselEndX = 0;
+    let isHorizontalSwipe = false;
 
-    track.addEventListener('touchstart', function(e) {
+    // Store reference to carousel container for event listeners
+    const carouselContainer = track.parentElement;
+
+    carouselContainer.addEventListener('touchstart', function(e) {
         carouselStartX = e.touches[0].clientX;
+        carouselStartY = e.touches[0].clientY;
+        isHorizontalSwipe = false;
     }, { passive: true });
 
-    track.addEventListener('touchend', function(e) {
+    carouselContainer.addEventListener('touchmove', function(e) {
+        if (!carouselStartX) return;
+        
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = Math.abs(currentX - carouselStartX);
+        const diffY = Math.abs(currentY - carouselStartY);
+        
+        // Determine if user is swiping horizontally
+        if (diffX > diffY && diffX > 10) {
+            isHorizontalSwipe = true;
+            // Prevent vertical scrolling when swiping horizontally
+            e.preventDefault();
+        }
+    }, { passive: false }); // passive: false allows preventDefault
+
+    carouselContainer.addEventListener('touchend', function(e) {
         carouselEndX = e.changedTouches[0].clientX;
-        handleCarouselSwipe();
+        if (isHorizontalSwipe) {
+            handleCarouselSwipe();
+        }
+        // Reset
+        carouselStartX = 0;
+        carouselStartY = 0;
+        isHorizontalSwipe = false;
     }, { passive: true });
 
     function handleCarouselSwipe() {
