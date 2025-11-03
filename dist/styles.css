@@ -140,6 +140,11 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
+    pointer-events: none; /* Allow clicks through navbar */
+}
+
+.navbar > * {
+    pointer-events: auto; /* Re-enable clicks on navbar content */
 }
 
 .navbar.scrolled {
@@ -247,6 +252,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
+    line-height: 0;
+    font-size: 0;
 }
 
 .wedding-card-svg {
@@ -256,11 +263,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
     vertical-align: bottom;
+    line-height: 0;
 }
 
 /* Gallery Section - Carousel Layout */
 .gallery-section {
-    padding: 0 0 100px 0;
+    padding: 0 0 60px 0;
     margin: 0;
     background: #f8f9fa;
     position: relative;
@@ -437,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Itinerary Section */
 .itinerary-section {
-    padding: 0 0 100px 0;
+    padding: 0 0 60px 0;
     background: white;
 }
 
@@ -674,7 +682,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Transportation Section */
 .transportation-section {
-    padding: 0 0 100px 0;
+    padding: 0 0 60px 0;
     background: #f8f9fa;
 }
 
@@ -781,7 +789,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dress Code Section */
 .dress-code-section {
-    padding: 0 0 100px 0;
+    padding: 0 0 60px 0;
     background: white;
 }
 
@@ -918,8 +926,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Photo Upload Section */
 .photo-upload-section {
-    padding: 0 0 100px 0;
-    background: white;
+    padding: 0 0 60px 0;
+    background: #f8f9fa;
 }
 
 .photo-upload-section .section-title {
@@ -1180,8 +1188,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* RSVP Section */
 .rsvp-section {
-    padding: 0 0 100px 0;
-    background: #f8f9fa;
+    padding: 0 0 60px 0;
+    background: white;
 }
 
 .rsvp-section .section-title {

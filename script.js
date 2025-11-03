@@ -939,14 +939,18 @@ function initializeSmoothScrolling() {
 
 // Scroll effects
 function initializeScrollEffects() {
-    // Parallax effect for wedding card section
+    // Parallax effect for wedding card section (disabled on mobile)
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const weddingCard = document.querySelector('.wedding-card');
-        const rate = scrolled * -0.5;
+        const isMobile = window.innerWidth <= 768;
         
-        if (weddingCard) {
+        if (weddingCard && !isMobile) {
+            const rate = scrolled * -0.5;
             weddingCard.style.transform = `translateY(${rate}px)`;
+        } else if (weddingCard && isMobile) {
+            // Reset transform on mobile
+            weddingCard.style.transform = 'none';
         }
     });
 
