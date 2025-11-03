@@ -35,24 +35,30 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="#wedding-card" class="nav-link">Home</a>
+                    <a href="#wedding-card" class="nav-link" data-en="Home" data-zh="主頁">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#gallery" class="nav-link" data-en="Gallery" data-zh="相簿">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#itinerary" class="nav-link">Itinerary</a>
+                    <a href="#itinerary" class="nav-link" data-en="Itinerary" data-zh="行程">Itinerary</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#transportation" class="nav-link">Transportation</a>
+                    <a href="#transportation" class="nav-link" data-en="Transportation" data-zh="交通">Transportation</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#photo-upload" class="nav-link">Upload Photos</a>
+                    <a href="#dress-code" class="nav-link" data-en="Dress Code" data-zh="服裝">Dress Code</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#rsvp" class="nav-link">RSVP</a>
+                    <a href="#photo-upload" class="nav-link" data-en="Upload Photos" data-zh="上傳照片">Upload Photos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#rsvp" class="nav-link" data-en="RSVP" data-zh="回覆出席">RSVP</a>
                 </li>
             </ul>
+            <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                <span class="lang-text">中文</span>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -71,7 +77,7 @@
     <!-- Photo Gallery Section -->
     <section id="gallery" class="gallery-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Love Story</h2>
+            <h2 class="section-title" data-aos="fade-up" data-en="Our Love Story" data-zh="我們的愛情故事">Our Love Story</h2>
             
             <!-- Carousel Container -->
             <div class="carousel-container" data-aos="fade-up" data-aos-delay="400">
@@ -121,7 +127,7 @@
     <!-- Big Day Itinerary Section -->
     <section id="itinerary" class="itinerary-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Wedding Day Timeline</h2>
+            <h2 class="section-title" data-aos="fade-up" data-en="Wedding Day Timeline" data-zh="婚禮當天時間表">Wedding Day Timeline</h2>
             
             <div class="timeline" data-aos="fade-up" data-aos-delay="400">
                 <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
@@ -130,15 +136,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Wedding Ceremony</h3>
-                            <p class="timeline-time">10:30 AM - 12:00 PM</p>
+                            <h3 data-en="Wedding Ceremony" data-zh="婚禮儀式">Wedding Ceremony</h3>
+                            <p class="timeline-time" data-en="10:30 AM - 12:00 PM" data-zh="上午10:30 - 中午12:00">10:30 AM - 12:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                Béthanie Chapel - The Academy's Landmark Heritage Campus
+                                <span data-en="Béthanie Chapel - The Academy's Landmark Heritage Campus" data-zh="伯大尼教堂 - 香港演藝學院地標古蹟校園">Béthanie Chapel - The Academy's Landmark Heritage Campus</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description">
+                            <p class="timeline-description" data-en="Join us for our wedding ceremony under the love of God. Please arrive 15 minutes early for seating." data-zh="誠邀您參加我們在上帝祝福下的婚禮儀式。請提前15分鐘到達以便就座。">
                                 Join us for our wedding ceremony under the love of God. 
                                 Please arrive 15 minutes early for seating.
                             </p>
@@ -155,15 +161,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Chinese Tea Ceremony</h3>
-                            <p class="timeline-time">2:00 PM - 5:00 PM</p>
+                            <h3 data-en="Chinese Tea Ceremony" data-zh="敬茶儀式">Chinese Tea Ceremony</h3>
+                            <p class="timeline-time" data-en="2:00 PM - 5:00 PM" data-zh="下午2:00 - 5:00">2:00 PM - 5:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                Harbour Grand Hong Kong, North Point
+                                <span data-en="Harbour Grand Hong Kong, North Point" data-zh="港島海逸君綽酒店，北角">Harbour Grand Hong Kong, North Point</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description">
+                            <p class="timeline-description" data-en="Traditional Chinese tea ceremony to honor our families and receive blessings from our elders. Private Event, close family only." data-zh="傳統中式敬茶儀式，向家人致敬並接受長輩的祝福。私人活動，僅限親密家人參加。">
                                 Traditional Chinese tea ceremony to honor our families and receive blessings from our elders. 
                                 Private Event, close family only.
                             </p>
@@ -180,15 +186,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Cocktail Hour</h3>
-                            <p class="timeline-time">5:30 PM - 8:00 PM</p>
+                            <h3 data-en="Cocktail Hour" data-zh="雞尾酒會">Cocktail Hour</h3>
+                            <p class="timeline-time" data-en="5:30 PM - 8:00 PM" data-zh="下午5:30 - 8:00">5:30 PM - 8:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                Marina Suite, Aberdeen Marina Club
+                                <span data-en="Marina Suite, Aberdeen Marina Club" data-zh="深灣遊艇會 Marina Suite">Marina Suite, Aberdeen Marina Club</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description">
+                            <p class="timeline-description" data-en="Enjoy cocktails, hors d'oeuvres, and mingling while we take photos." data-zh="在我們拍照期間，享用雞尾酒、開胃菜並與賓客交流。">
                                 Enjoy cocktails, hors d'oeuvres, and mingling while we take photos.
                             </p>
                             <div class="timeline-map">
@@ -204,15 +210,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Reception Dinner</h3>
-                            <p class="timeline-time">8:00 PM - 11:00 PM</p>
+                            <h3 data-en="Reception Dinner" data-zh="晚宴">Reception Dinner</h3>
+                            <p class="timeline-time" data-en="8:00 PM - 11:00 PM" data-zh="晚上8:00 - 11:00">8:00 PM - 11:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                Grand Ballroom, Aberdeen Marina Club
+                                <span data-en="Grand Ballroom, Aberdeen Marina Club" data-zh="深灣遊艇會大禮堂">Grand Ballroom, Aberdeen Marina Club</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description">
+                            <p class="timeline-description" data-en="Traditional Chinese bouqet, free flow drinks. Please note your dietary preferences in your RSVP." data-zh="傳統中式宴席，無限暢飲。請在回覆時註明您的飲食偏好。">
                                 Traditional Chinese bouqet, free flow drinks.
                                 Please note your dietary preferences in your RSVP.
                             </p>
@@ -230,21 +236,23 @@
     <!-- Transportation Section -->
     <section id="transportation" class="transportation-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Getting There</h2>
+            <h2 class="section-title" data-aos="fade-up" data-en="Getting There" data-zh="交通指南">Getting There</h2>
             
             <div class="transportation-grid" data-aos="fade-up" data-aos-delay="400">
                 <div class="transportation-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card-header">
                         <div class="card-icon">
-                            <i class="fas fa-car"></i>
+                            <i class="fas fa-bus"></i>
                         </div>
-                        <h3>Parking Information</h3>
+                        <h3 data-en="Shuttle Service" data-zh="接駁服務">Shuttle Service</h3>
                     </div>
                     <div class="card-details">
-                        <ul class="parking-info">
-                            <li><i class="fas fa-check"></i> Complimentary Self-parking available at Aberdeen Marina Club only</li>
-                            <li><i class="fas fa-check"></i> Please let us know your car plate number in advance</li>
-                            <li><i class="fas fa-check"></i> Béthanie Chapel has limited parking spaces, parking is not available for guests.</li>
+                        <p data-en="Complimentary shuttle service available:" data-zh="提供免費接駁服務：">Complimentary shuttle service available:</p>
+                        <ul class="shuttle-info">
+                            <li><strong data-en="Public Transport → Béthanie Chapel:" data-zh="公共交通 → 伯大尼教堂：">Public Transport → Béthanie Chapel:</strong></li>
+                            <li data-en="Departure at 11:30 AM" data-zh="上午11:30出發">Departure at 11:30 AM</li>
+                            <li><strong data-en="Aberdeen Marina Club → Public Transport:" data-zh="深灣遊艇會 → 公共交通：">Aberdeen Marina Club → Public Transport:</strong></li>
+                            <li data-en="Departure at 10:30 PM, 11:00 PM" data-zh="晚上10:30、11:00出發">Departure at 10:30 PM, 11:00 PM</li>
                         </ul>
                     </div>
                 </div>
@@ -252,32 +260,72 @@
                 <div class="transportation-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card-header">
                         <div class="card-icon">
-                            <i class="fas fa-bus"></i>
+                            <i class="fas fa-subway"></i>
                         </div>
-                        <h3>Shuttle Service</h3>
+                        <h3 data-en="Public Transport" data-zh="公共交通">Public Transport</h3>
                     </div>
                     <div class="card-details">
-                        <p>Complimentary shuttle service available:</p>
-                        <ul class="shuttle-info">
-                            <li><strong>Public Transport → Béthanie Chapel:</strong></li>
-                            <li>Departure at 11:30 AM</li>
-                            <li><strong>Aberdeen Marina Club → Public Transport:</strong></li>
-                            <li>Departure at 10:30 PM, 11:00 PM</li>
-                        </ul>
+                        <p data-en="The closest Public Transport station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club." data-zh="最近的公共交通站是黃竹坑站（南港島線），距離深灣遊艇會約10分鐘路程。">The closest Public Transport station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club.</p>
+                        <div class="mtr-image-container">
+                            <img src="images/mtr_map.png" alt="Public Transport Map to Aberdeen Marina Club" loading="lazy">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="transportation-card" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card-header">
                         <div class="card-icon">
-                            <i class="fas fa-subway"></i>
+                            <i class="fas fa-car"></i>
                         </div>
-                        <h3>Public Transport</h3>
+                        <h3 data-en="Parking Information" data-zh="停車資訊">Parking Information</h3>
                     </div>
                     <div class="card-details">
-                        <p>The closest Public Transport station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club.</p>
-                        <div class="mtr-image-container">
-                            <img src="images/mtr_map.png" alt="Public Transport Map to Aberdeen Marina Club" loading="lazy">
+                        <ul class="parking-info">
+                            <li><i class="fas fa-check"></i> <span data-en="Complimentary Self-parking available at Aberdeen Marina Club only" data-zh="僅在深灣遊艇會提供免費自助停車">Complimentary Self-parking available at Aberdeen Marina Club only</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Please let us know your car plate number in advance" data-zh="請提前告知您的車牌號碼">Please let us know your car plate number in advance</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Béthanie Chapel has limited parking spaces, parking is not available for guests." data-zh="伯大尼教堂的停車位有限，不提供賓客停車。">Béthanie Chapel has limited parking spaces, parking is not available for guests.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section id="dress-code" class="dress-code-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-en="Dress Code" data-zh="服裝規定">Dress Code</h2>
+            
+            <div class="dress-code-content" data-aos="fade-up" data-aos-delay="400">
+                <div class="dress-code-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="dress-code-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <p class="dress-code-description" data-en="Smart casual or cocktail attire" data-zh="休閒正裝或雞尾酒服裝">Smart casual or cocktail attire</p>
+                    <div class="color-palette">
+                        <h4 data-en="Suggested Theme Colors" data-zh="建議主題顏色">Suggested Theme Colors</h4>
+                        <div class="color-swatches">
+                            <div class="color-swatch" style="background: #b8d4b8;" title="Sage Green">
+                                <span class="color-name">Sage Green</span>
+                            </div>
+                            <div class="color-swatch" style="background: #8ab88a;" title="Mint Green">
+                                <span class="color-name">Mint Green</span>
+                            </div>
+                            <div class="color-swatch" style="background: #2c5f2d;" title="Forest Green">
+                                <span class="color-name">Forest Green</span>
+                            </div>
+                            <div class="color-swatch" style="background: #d4c5b9;" title="Champagne">
+                                <span class="color-name">Champagne</span>
+                            </div>
+                            <div class="color-swatch" style="background: #e8d5c4;" title="Blush">
+                                <span class="color-name">Blush</span>
+                            </div>
+                            <div class="color-swatch" style="background: #8b7355;" title="Earth Tone">
+                                <span class="color-name">Earth Tone</span>
+                            </div>
+                            <div class="color-swatch" style="background: #2b3e50;" title="Navy Blue">
+                                <span class="color-name">Navy Blue</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -288,8 +336,8 @@
     <!-- Photo Upload Section -->
     <section id="photo-upload" class="photo-upload-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Share Your Photos</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title" data-aos="fade-up" data-en="Share Your Photos" data-zh="分享您的照片">Share Your Photos</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Help us capture all the special moments by uploading your photos from the wedding" data-zh="請上傳您在婚禮上拍攝的照片，幫助我們捕捉所有特別時刻">
                 Help us capture all the special moments by uploading your photos from the wedding
             </p>
             
@@ -297,23 +345,23 @@
                 <div class="upload-area" id="upload-area">
                     <div class="upload-content">
                         <i class="fas fa-cloud-upload-alt"></i>
-                        <h3>Drop your photos here</h3>
-                        <p>or click to browse files</p>
-                        <span class="upload-formats">Supports: JPG, PNG, GIF (Max 10MB each)</span>
+                        <h3 data-en="Drop your photos here" data-zh="將照片拖放到此處">Drop your photos here</h3>
+                        <p data-en="or click to browse files" data-zh="或點擊瀏覽文件">or click to browse files</p>
+                        <span class="upload-formats" data-en="Supports: JPG, PNG, GIF (Max 10MB each)" data-zh="支援：JPG、PNG、GIF（每個最大10MB）">Supports: JPG, PNG, GIF (Max 10MB each)</span>
                     </div>
                     <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
                 </div>
                 
                 <div class="selected-photos-preview" id="selected-photos-preview" style="display: none;">
-                    <h4>Selected Photos:</h4>
+                    <h4 data-en="Selected Photos:" data-zh="已選擇的照片：">Selected Photos:</h4>
                     <div class="selected-photos-grid" id="selected-photos-grid">
                         <!-- Selected photo previews will appear here -->
                     </div>
                     <div class="upload-actions">
-                        <button class="btn btn-secondary" id="cancel-upload">Cancel</button>
+                        <button class="btn btn-secondary" id="cancel-upload" data-en="Cancel" data-zh="取消">Cancel</button>
                         <button class="btn btn-primary" id="confirm-upload">
                             <i class="fas fa-upload"></i>
-                            Upload Photos
+                            <span data-en="Upload Photos" data-zh="上傳照片">Upload Photos</span>
                         </button>
                     </div>
                 </div>
@@ -328,11 +376,6 @@
                 <div class="uploaded-photos" id="uploaded-photos">
                     <!-- Uploaded photos will appear here -->
                 </div>
-                
-                <div class="upload-note">
-                    <i class="fas fa-info-circle"></i>
-                    <p>Photos will be moderated before appearing in the gallery. Please upload appropriate content only.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -340,8 +383,8 @@
     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">RSVP</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title" data-aos="fade-up" data-en="RSVP" data-zh="回覆出席">RSVP</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Please respond by January 1st, 2026" data-zh="請於2026年1月1日前回覆">
                 Please respond by January 1st, 2026
             </p>
             
@@ -349,65 +392,65 @@
                 <form id="rsvp-form" class="rsvp-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
+                            <label for="name" data-en="Full Name *" data-zh="全名 *">Full Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
+                            <label for="phone" data-en="Phone Number *" data-zh="電話號碼 *">Phone Number *</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message for the Couple</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Share a special message, memory, or well wishes..."></textarea>
+                        <label for="message" data-en="Message for the Couple" data-zh="給新人的留言">Message for the Couple</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Share a special message, memory, or well wishes..." data-placeholder-en="Share a special message, memory, or well wishes..." data-placeholder-zh="分享特別的訊息、回憶或祝福..."></textarea>
                     </div>
                     
                     <div class="form-group inline">
-                        <label for="attendance">Will you be attending? *</label>
+                        <label for="attendance" data-en="Will you be attending? *" data-zh="您會出席嗎？*">Will you be attending? *</label>
                         <div class="attendance-toggle">
                             <input type="checkbox" id="attendance" name="attendance" class="toggle-input">
                             <label for="attendance" class="toggle-label">
-                                <span class="toggle-text">No</span>
+                                <span class="toggle-text" data-en="No" data-zh="否">No</span>
                                 <span class="toggle-switch"></span>
-                                <span class="toggle-text">Yes</span>
+                                <span class="toggle-text" data-en="Yes" data-zh="是">Yes</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="form-group inline">
-                        <label for="side">Groom or Bride Side? *</label>
+                        <label for="side" data-en="Groom or Bride Side? *" data-zh="新郎方或新娘方？*">Groom or Bride Side? *</label>
                         <div class="side-toggle">
                             <input type="checkbox" id="side" name="side" class="toggle-input">
                             <label for="side" class="toggle-label">
-                                <span class="toggle-text">Bride</span>
-                                <span class="toggle-text">Groom</span>
+                                <span class="toggle-text" data-en="Bride" data-zh="新娘">Bride</span>
+                                <span class="toggle-text" data-en="Groom" data-zh="新郎">Groom</span>
                             </label>
                         </div>
                     </div>
                     
             <div class="form-group inline">
-                <label for="guests">Number of Guests *</label>
+                <label for="guests" data-en="Number of Guests *" data-zh="賓客人數 *">Number of Guests *</label>
                 <select id="guests" name="guests" class="guest-dropdown">
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests</option>
-                    <option value="3">3 Guests</option>
+                    <option value="1" data-en="1 Guest" data-zh="1位賓客">1 Guest</option>
+                    <option value="2" data-en="2 Guests" data-zh="2位賓客">2 Guests</option>
+                    <option value="3" data-en="3 Guests" data-zh="3位賓客">3 Guests</option>
                 </select>
             </div>
                     
                     <div class="form-group">
-                        <label for="dietary">Dietary Restrictions or Allergies</label>
-                        <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know of any dietary restrictions or allergies..."></textarea>
+                        <label for="dietary" data-en="Dietary Restrictions or Allergies" data-zh="飲食限制或過敏">Dietary Restrictions or Allergies</label>
+                        <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know of any dietary restrictions or allergies..." data-placeholder-en="Please let us know of any dietary restrictions or allergies..." data-placeholder-zh="請告知我們任何飲食限制或過敏..."></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="carplate">Car Plate Number (if driving)</label>
-                        <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)">
+                        <label for="carplate" data-en="Car Plate Number (if driving)" data-zh="車牌號碼（如駕車）">Car Plate Number (if driving)</label>
+                        <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)" data-placeholder-en="Enter your car plate number (optional)" data-placeholder-zh="輸入您的車牌號碼（可選）">
                     </div>
                     
                     <button type="submit" class="btn btn-primary btn-large">
                         <i class="fas fa-paper-plane"></i>
-                        Send RSVP
+                        <span data-en="Send RSVP" data-zh="提交回覆">Send RSVP</span>
                     </button>
                 </form>
             </div>

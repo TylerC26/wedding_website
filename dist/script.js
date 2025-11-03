@@ -35,6 +35,9 @@ function initializeApp() {
     // Initialize navigation
     initializeNavigation();
     
+    // Initialize language toggle
+    initializeLanguageToggle();
+    
     // Initialize timeline and transportation cards
     initializeTimeline();
     
@@ -104,6 +107,47 @@ function initializeNavigation() {
             }
         });
     });
+}
+
+// Language Toggle Functionality
+function initializeLanguageToggle() {
+    const langToggle = document.getElementById('lang-toggle');
+    const langText = langToggle.querySelector('.lang-text');
+    let currentLang = 'en'; // Default language is English
+
+    langToggle.addEventListener('click', function() {
+        if (currentLang === 'en') {
+            // Switch to Chinese
+            currentLang = 'zh';
+            langText.textContent = 'EN';
+            translatePage('zh');
+        } else {
+            // Switch to English
+            currentLang = 'en';
+            langText.textContent = '中文';
+            translatePage('en');
+        }
+    });
+
+    function translatePage(lang) {
+        // Translate elements with data-en and data-zh attributes
+        document.querySelectorAll('[data-en][data-zh]').forEach(element => {
+            if (lang === 'zh') {
+                element.textContent = element.getAttribute('data-zh');
+            } else {
+                element.textContent = element.getAttribute('data-en');
+            }
+        });
+
+        // Translate placeholders for input and textarea elements
+        document.querySelectorAll('[data-placeholder-en][data-placeholder-zh]').forEach(element => {
+            if (lang === 'zh') {
+                element.placeholder = element.getAttribute('data-placeholder-zh');
+            } else {
+                element.placeholder = element.getAttribute('data-placeholder-en');
+            }
+        });
+    }
 }
 
 // Timeline and Transportation card collapsible functionality for mobile

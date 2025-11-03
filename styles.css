@@ -49,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
     color: #8ab88a;
     font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .section-subtitle {
@@ -191,6 +192,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* Language Toggle Button */
+.lang-toggle {
+    background: linear-gradient(135deg, #b8d4b8 0%, #a5c4a5 100%);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lang-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lang-text {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .hamburger {
@@ -415,6 +439,11 @@ h1, h2, h3, h4, h5, h6 {
 .itinerary-section {
     padding: 0 0 100px 0;
     background: white;
+}
+
+.itinerary-section .section-title {
+    margin-top: 0;
+    padding-top: 60px;
 }
 
 .timeline {
@@ -750,10 +779,152 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
 
+/* Dress Code Section */
+.dress-code-section {
+    padding: 0 0 100px 0;
+    background: white;
+}
+
+.dress-code-section .section-title {
+    margin-top: 0;
+    padding-top: 60px;
+}
+
+.dress-code-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.dress-code-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dress-code-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dress-code-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #b8d4b8 0%, #a5c4a5 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dress-code-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.dress-code-description {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.color-palette h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.color-name {
+    font-size: 0.7rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.3rem 0.5rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dress-code-note {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    background: #fff3cd;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dress-code-note i {
+    color: #b8d4b8;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design for Dress Code */
+@media (max-width: 768px) {
+    .dress-code-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .color-swatch {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .color-name {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.3rem;
+    }
+    
+    .color-swatches {
+        gap: 0.8rem;
+    }
+}
+
 /* Photo Upload Section */
 .photo-upload-section {
     padding: 0 0 100px 0;
     background: white;
+}
+
+.photo-upload-section .section-title {
+    margin-top: 0;
+    padding-top: 60px;
 }
 
 .upload-container {
@@ -1011,6 +1182,11 @@ h1, h2, h3, h4, h5, h6 {
 .rsvp-section {
     padding: 0 0 100px 0;
     background: #f8f9fa;
+}
+
+.rsvp-section .section-title {
+    margin-top: 0;
+    padding-top: 60px;
 }
 
 .rsvp-container {
@@ -1458,6 +1634,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .lang-toggle {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    
     .hamburger {
         display: flex;
     }
