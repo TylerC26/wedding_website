@@ -18,6 +18,7 @@ const storage = firebase.storage();
 let currentImageIndex = 0;
 let galleryImages = [];
 let uploadedFiles = [];
+let currentLang = 'en'; // Global language state
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -113,7 +114,6 @@ function initializeNavigation() {
 function initializeLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
     const langText = langToggle.querySelector('.lang-text');
-    let currentLang = 'en'; // Default language is English
 
     langToggle.addEventListener('click', function() {
         if (currentLang === 'en') {
@@ -874,7 +874,8 @@ function initializeRSVPForm() {
         // Show loading state
         const submitBtn = rsvpForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<div class="loading"></div> Sending...';
+        const sendingText = currentLang === 'zh' ? '發送中...' : 'Sending...';
+        submitBtn.innerHTML = '<div class="loading"></div> ' + sendingText;
         submitBtn.disabled = true;
 
         // Submit to Formspree
