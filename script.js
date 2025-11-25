@@ -147,6 +147,15 @@ function initializeLanguageToggle() {
                 element.placeholder = element.getAttribute('data-placeholder-en');
             }
         });
+        
+        // Translate select option text
+        document.querySelectorAll('select option[data-en][data-zh]').forEach(option => {
+            if (lang === 'zh') {
+                option.textContent = option.getAttribute('data-zh');
+            } else {
+                option.textContent = option.getAttribute('data-en');
+            }
+        });
     }
 }
 
@@ -775,33 +784,69 @@ function initializeRSVPForm() {
     // Attendance toggle functionality
     const attendanceToggle = document.getElementById('attendance');
     const sideToggle = document.getElementById('side');
-    const sideGroup = document.querySelector('.form-group:nth-of-type(4)'); // Side toggle form group
-    const guestCounterGroup = document.querySelector('.form-group:nth-of-type(5)'); // Guest counter form group
-    const dietaryGroup = document.querySelector('.form-group:nth-of-type(6)'); // Dietary form group
-    const carPlateGroup = document.querySelector('.form-group:nth-of-type(7)'); // Car plate form group
-    // Message field is now always visible inside the form (no need to track it)
+    const shuttleServiceToggle = document.getElementById('shuttle-service');
+    
+    // Conditional form groups
+    const attendanceTypeGroup = document.getElementById('attendance-type-group');
+    const shuttleServiceGroup = document.getElementById('shuttle-service-group');
+    const shuttleLocationGroup = document.getElementById('shuttle-location-group');
+    const sideGroup = document.getElementById('side-group');
+    const guestCounterGroup = document.getElementById('guests-group');
+    const dietaryGroup = document.getElementById('dietary-group');
+    const carPlateGroup = document.getElementById('carplate-group');
 
     attendanceToggle.addEventListener('change', function() {
         if (this.checked) {
             // Show additional questions when "Yes" is selected
+            attendanceTypeGroup.style.display = 'block';
+            shuttleServiceGroup.style.display = 'block';
             sideGroup.style.display = 'block';
             guestCounterGroup.style.display = 'block';
             dietaryGroup.style.display = 'block';
             carPlateGroup.style.display = 'block';
-            // Message group is always visible (outside form)
         } else {
             // Hide additional questions when "No" is selected
+            attendanceTypeGroup.style.display = 'none';
+            shuttleServiceGroup.style.display = 'none';
+            shuttleLocationGroup.style.display = 'none';
             sideGroup.style.display = 'none';
             guestCounterGroup.style.display = 'none';
             dietaryGroup.style.display = 'none';
             carPlateGroup.style.display = 'none';
-            // Message group remains visible (outside form)
+            // Reset shuttle service toggle and location
+            shuttleServiceToggle.checked = false;
+            document.querySelectorAll('input[name="shuttle-location"]').forEach(radio => {
+                radio.checked = false;
+            });
+            // Reset attendance type checkboxes
+            document.querySelectorAll('input[name="attendance-type"]').forEach(cb => {
+                cb.checked = false;
+            });
+        }
+    });
+    
+    // Shuttle service toggle functionality
+    shuttleServiceToggle.addEventListener('change', function() {
+        if (this.checked) {
+            shuttleLocationGroup.style.display = 'block';
+        } else {
+            shuttleLocationGroup.style.display = 'none';
+            document.querySelectorAll('input[name="shuttle-location"]').forEach(radio => {
+                radio.checked = false;
+            });
+            // Reset label borders
+            document.querySelectorAll('.shuttle-location-label').forEach(label => {
+                label.style.borderColor = '#e9ecef';
+            });
         }
     });
 
     // No additional functionality needed for dropdown - it's self-contained
     
     // Initialize form state (hide additional questions by default)
+    attendanceTypeGroup.style.display = 'none';
+    shuttleServiceGroup.style.display = 'none';
+    shuttleLocationGroup.style.display = 'none';
     sideGroup.style.display = 'none';
     guestCounterGroup.style.display = 'none';
     dietaryGroup.style.display = 'none';
@@ -826,8 +871,38 @@ function initializeRSVPForm() {
         // Attendance is always valid (both Yes and No are acceptable responses)
         attendanceToggle.style.borderColor = '#e9ecef';
 
-        // Only validate side and guest count if attending (toggle is checked)
+        // Only validate additional fields if attending (toggle is checked)
         if (attendanceToggle.checked) {
+            // Validate attendance type (checkboxes - multiple selection allowed)
+            const attendanceTypes = document.querySelectorAll('input[name="attendance-type"]:checked');
+            if (attendanceTypes.length === 0) {
+                // Highlight all labels if none selected
+                document.querySelectorAll('.attendance-type-label').forEach(label => {
+                    label.style.borderColor = '#e74c3c';
+                });
+                isValid = false;
+            } else {
+                document.querySelectorAll('.attendance-type-label').forEach(label => {
+                    label.style.borderColor = '#e9ecef';
+                });
+            }
+            
+            // Validate shuttle service
+            if (shuttleServiceToggle.checked) {
+                const shuttleLocation = document.querySelector('input[name="shuttle-location"]:checked');
+                if (!shuttleLocation) {
+                    // Highlight all labels if none selected
+                    document.querySelectorAll('.shuttle-location-label').forEach(label => {
+                        label.style.borderColor = '#e74c3c';
+                    });
+                    isValid = false;
+                } else {
+                    document.querySelectorAll('.shuttle-location-label').forEach(label => {
+                        label.style.borderColor = '#e9ecef';
+                    });
+                }
+            }
+            
             // Side selection is always valid since both options are valid
             // (Bride = unchecked, Groom = checked)
             
@@ -860,13 +935,32 @@ function initializeRSVPForm() {
         // Convert attendance checkbox to yes/no
         data.attendance = document.getElementById('attendance').checked ? 'Yes' : 'No';
         
-        // Only include side and guest count if attending
+        // Only include additional fields if attending
         if (data.attendance === 'Yes') {
+            // Attendance type (checkboxes - multiple selection)
+            const attendanceTypes = Array.from(document.querySelectorAll('input[name="attendance-type"]:checked')).map(cb => cb.value);
+            if (attendanceTypes.length > 0) {
+                data['attendance-type'] = attendanceTypes.join(', ');
+            }
+            
+            // Shuttle service
+            const needsShuttle = document.getElementById('shuttle-service').checked;
+            data['shuttle-service'] = needsShuttle ? 'Yes' : 'No';
+            if (needsShuttle) {
+                const shuttleLocation = document.querySelector('input[name="shuttle-location"]:checked');
+                if (shuttleLocation) {
+                    data['shuttle-location'] = shuttleLocation.value;
+                }
+            }
+            
             // Convert side checkbox to Bride/Groom
             data.side = document.getElementById('side').checked ? 'Groom' : 'Bride';
             data.guests = parseInt(data.guests);
         } else {
-            // Remove side and guests fields if not attending
+            // Remove additional fields if not attending
+            delete data['attendance-type'];
+            delete data['shuttle-service'];
+            delete data['shuttle-location'];
             delete data.side;
             delete data.guests;
         }
@@ -900,11 +994,29 @@ function initializeRSVPForm() {
             // Reset attendance and side toggles
             attendanceToggle.checked = false;
             sideToggle.checked = false;
+            shuttleServiceToggle.checked = false;
             // Hide additional questions after form reset
+            attendanceTypeGroup.style.display = 'none';
+            shuttleServiceGroup.style.display = 'none';
+            shuttleLocationGroup.style.display = 'none';
             sideGroup.style.display = 'none';
             guestCounterGroup.style.display = 'none';
             dietaryGroup.style.display = 'none';
             carPlateGroup.style.display = 'none';
+            // Reset checkboxes and radio buttons
+            document.querySelectorAll('input[name="attendance-type"]').forEach(cb => {
+                cb.checked = false;
+            });
+            document.querySelectorAll('input[name="shuttle-location"]').forEach(radio => {
+                radio.checked = false;
+            });
+            // Reset label borders
+            document.querySelectorAll('.attendance-type-label').forEach(label => {
+                label.style.borderColor = '#e9ecef';
+            });
+            document.querySelectorAll('.shuttle-location-label').forEach(label => {
+                label.style.borderColor = '#e9ecef';
+            });
             // Message group remains visible (outside form)
             
             console.log('RSVP submitted successfully:', responseData);

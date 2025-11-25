@@ -249,6 +249,8 @@
                     <div class="card-details">
                         <p data-en="Complimentary shuttle service available:" data-zh="提供免費接駁服務：">Complimentary shuttle service available:</p>
                         <ul class="shuttle-info">
+                            <li><strong data-en="Lam Tin MTR Station → Béthanie Chapel:" data-zh="藍田地鐵站 → 伯大尼教堂：">Lam Tin MTR Station → Béthanie Chapel:</strong></li>
+                            <li data-en="Departure at 9:45 AM" data-zh="上午9:45出發">Departure at 9:45 AM</li>
                             <li><strong data-en="Admiralty MTR Station → Béthanie Chapel:" data-zh="金鐘地鐵站 → 伯大尼教堂：">Admiralty MTR Station → Béthanie Chapel:</strong></li>
                             <li data-en="Departure at 10:00 AM" data-zh="上午10:00出發">Departure at 10:00 AM</li>
                             <li><strong data-en="Aberdeen Marina Club → Admiralty MTR Station:" data-zh="深灣遊艇會 → 金鐘地鐵站：">Aberdeen Marina Club → Admiralty MTR Station:</strong></li>
@@ -265,10 +267,14 @@
                         <h3 data-en="Public Transport" data-zh="公共交通">Public Transport</h3>
                     </div>
                     <div class="card-details">
+                        <h4 data-en="To Aberdeen Marina Club" data-zh="前往深灣遊艇會">To Aberdeen Marina Club</h4>
                         <p data-en="The closest Public Transport station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club." data-zh="最近的公共交通站是黃竹坑站（南港島線），距離深灣遊艇會約10分鐘路程。">The closest Public Transport station is Wong Shuk Hang Station (South Island Line) which is about 10 minutes away from Aberdeen Marina Club.</p>
                         <div class="mtr-image-container">
                             <img src="images/mtr_map.png" alt="Public Transport Map to Aberdeen Marina Club" loading="lazy">
                         </div>
+                        <h4 data-en="To Béthanie Chapel" data-zh="前往伯大尼教堂">To Béthanie Chapel</h4>
+                        <p data-en="Guests can drop off at 'Pok Fu Lam Reservoir Road' bus station." data-zh="賓客可在'薄扶林水塘道'巴士站下車。">Guests can drop off at 'Pok Fu Lam Reservoir Road' bus station.</p>
+                        <p data-en="Bus routes: Citybus 4, 4X, 7, 37B, 40, 40M, 90B, 91, 970, 970X, 973." data-zh="巴士路線：城巴 4、4X、7、37B、40、40M、90B、91、970、970X、973。">Bus routes: Citybus 4, 4X, 7, 37B, 40, 40M, 90B, 91, 970, 970X, 973.</p>
                     </div>
                 </div>
                 
@@ -403,7 +409,48 @@
                         </div>
                     </div>
                     
-                    <div class="form-group inline">
+                    <!-- Conditional questions - only shown when attending -->
+                    <div class="form-group conditional-attendance" id="attendance-type-group" style="display: none;">
+                        <label data-en="Attendance to:" data-zh="參加活動：">Attendance to: *</label>
+                        <div class="attendance-type-selector">
+                            <input type="checkbox" id="attendance-church" name="attendance-type" value="church-ceremony" class="attendance-type-input">
+                            <label for="attendance-church" class="attendance-type-label">
+                                <span data-en="Church Ceremony" data-zh="教堂儀式">Church Ceremony</span>
+                            </label>
+                            <input type="checkbox" id="attendance-reception" name="attendance-type" value="reception-dinner" class="attendance-type-input">
+                            <label for="attendance-reception" class="attendance-type-label">
+                                <span data-en="Reception Dinner" data-zh="晚宴">Reception Dinner</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group conditional-attendance" id="shuttle-service-group" style="display: none;">
+                        <label for="shuttle-service" data-en="Do you need shuttle service to Béthanie? *" data-zh="需要前往伯大尼的接駁服務嗎？*">Do you need shuttle service to Béthanie? *</label>
+                        <div class="attendance-toggle">
+                            <input type="checkbox" id="shuttle-service" name="shuttle-service" class="toggle-input">
+                            <label for="shuttle-service" class="toggle-label">
+                                <span class="toggle-text" data-en="No" data-zh="否">No</span>
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text" data-en="Yes" data-zh="是">Yes</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group conditional-attendance" id="shuttle-location-group" style="display: none;">
+                        <label data-en="Where to board? *" data-zh="在哪裡上車？*">Where to board? *</label>
+                        <div class="shuttle-location-selector">
+                            <input type="radio" id="shuttle-admiralty" name="shuttle-location" value="admiralty" class="shuttle-location-input">
+                            <label for="shuttle-admiralty" class="shuttle-location-label">
+                                <span data-en="Admiralty MTR Station" data-zh="金鐘地鐵站">Admiralty MTR Station</span>
+                            </label>
+                            <input type="radio" id="shuttle-lam-tin" name="shuttle-location" value="lam-tin" class="shuttle-location-input">
+                            <label for="shuttle-lam-tin" class="shuttle-location-label">
+                                <span data-en="Lam Tin MTR Station" data-zh="藍田地鐵站">Lam Tin MTR Station</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group inline" id="side-group">
                         <label for="side" data-en="Groom or Bride Side? *" data-zh="新郎方或新娘方？*">Groom or Bride Side? *</label>
                         <div class="side-toggle">
                             <input type="checkbox" id="side" name="side" class="toggle-input">
@@ -414,7 +461,7 @@
                         </div>
                     </div>
                     
-            <div class="form-group inline">
+            <div class="form-group inline" id="guests-group">
                 <label for="guests" data-en="Number of Guests *" data-zh="賓客人數 *">Number of Guests *</label>
                 <select id="guests" name="guests" class="guest-dropdown">
                     <option value="1" data-en="1 Guest" data-zh="1位賓客">1 Guest</option>
@@ -423,12 +470,12 @@
                 </select>
             </div>
                     
-                    <div class="form-group">
+                    <div class="form-group" id="dietary-group">
                         <label for="dietary" data-en="Dietary Restrictions or Allergies" data-zh="飲食限制或過敏">Dietary Restrictions or Allergies</label>
                         <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know of any dietary restrictions or allergies..." data-placeholder-en="Please let us know of any dietary restrictions or allergies..." data-placeholder-zh="請告知我們任何飲食限制或過敏..."></textarea>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="form-group" id="carplate-group">
                         <label for="carplate" data-en="Car Plate Number (if driving)" data-zh="車牌號碼（如駕車）">Car Plate Number (if driving)</label>
                         <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)" data-placeholder-en="Enter your car plate number (optional)" data-placeholder-zh="輸入您的車牌號碼（可選）">
                     </div>

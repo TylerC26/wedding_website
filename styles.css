@@ -272,6 +272,27 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     background: #f8f9fa;
     position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.85);
+    z-index: 0;
+}
+
+.gallery-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .gallery-section .section-title {
@@ -455,6 +476,28 @@ h1, h2, h3, h4, h5, h6 {
 .itinerary-section {
     padding: 0 0 60px 0;
     background: white;
+    position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.itinerary-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 0;
+}
+
+.itinerary-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .itinerary-section .section-title {
@@ -692,6 +735,28 @@ h1, h2, h3, h4, h5, h6 {
 .transportation-section {
     padding: 0 0 60px 0;
     background: #f8f9fa;
+    position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.transportation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.85);
+    z-index: 0;
+}
+
+.transportation-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .transportation-section .section-title {
@@ -735,6 +800,23 @@ h1, h2, h3, h4, h5, h6 {
 .transportation-card h3 {
     margin-bottom: 20px;
     color: #2c3e50;
+}
+
+.transportation-card .card-details {
+    text-align: left;
+}
+
+.transportation-card .card-details h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #8ab88a;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.transportation-card .card-details h4:first-child {
+    margin-top: 0;
 }
 
 .venue-address {
@@ -799,6 +881,28 @@ h1, h2, h3, h4, h5, h6 {
 .dress-code-section {
     padding: 0 0 60px 0;
     background: white;
+    position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.dress-code-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 0;
+}
+
+.dress-code-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .dress-code-section .section-title {
@@ -936,6 +1040,28 @@ h1, h2, h3, h4, h5, h6 {
 .photo-upload-section {
     padding: 0 0 60px 0;
     background: #f8f9fa;
+    position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.photo-upload-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.85);
+    z-index: 0;
+}
+
+.photo-upload-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .photo-upload-section .section-title {
@@ -1198,6 +1324,28 @@ h1, h2, h3, h4, h5, h6 {
 .rsvp-section {
     padding: 0 0 60px 0;
     background: white;
+    position: relative;
+    background-image: url('images/bg1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 0;
+}
+
+.rsvp-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .rsvp-section .section-title {
@@ -1208,6 +1356,94 @@ h1, h2, h3, h4, h5, h6 {
 .rsvp-container {
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* Attendance Type Selector - Multiple Selection, 2 per row, smaller */
+.attendance-type-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.attendance-type-input {
+    display: none;
+}
+
+.attendance-type-label {
+    padding: 8px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    background: #f8f9fa;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.attendance-type-label:hover {
+    border-color: #b8d4b8;
+    background: rgba(184, 212, 184, 0.1);
+}
+
+.attendance-type-input:checked + .attendance-type-label {
+    background: linear-gradient(135deg, #b8d4b8, #a5c4a5);
+    color: white;
+    border-color: #b8d4b8;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(184, 212, 184, 0.3);
+}
+
+@media (max-width: 768px) {
+    .attendance-type-selector {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Shuttle Location Selector - Single Selection, 2 per row */
+.shuttle-location-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.shuttle-location-input {
+    display: none;
+}
+
+.shuttle-location-label {
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    background: #f8f9fa;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.shuttle-location-label:hover {
+    border-color: #b8d4b8;
+    background: rgba(184, 212, 184, 0.1);
+}
+
+.shuttle-location-input:checked + .shuttle-location-label {
+    background: linear-gradient(135deg, #b8d4b8, #a5c4a5);
+    color: white;
+    border-color: #b8d4b8;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(184, 212, 184, 0.3);
+}
+
+@media (max-width: 768px) {
+    .shuttle-location-selector {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Attendance Toggle */
@@ -1645,6 +1881,16 @@ h1, h2, h3, h4, h5, h6 {
     
     * {
         max-width: 100%;
+    }
+    
+    /* Disable parallax effect on mobile for better performance */
+    .gallery-section,
+    .itinerary-section,
+    .transportation-section,
+    .dress-code-section,
+    .photo-upload-section,
+    .rsvp-section {
+        background-attachment: scroll !important;
     }
 }
 
