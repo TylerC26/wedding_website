@@ -760,7 +760,6 @@ function initializeRSVPForm() {
     const rsvpForm = document.getElementById('rsvp-form');
     const rsvpModal = document.getElementById('rsvp-modal');
     const modalClose = document.querySelector('.modal-close');
-    const guestsSelect = document.getElementById('guests');
 
     rsvpForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -791,7 +790,6 @@ function initializeRSVPForm() {
     const shuttleServiceGroup = document.getElementById('shuttle-service-group');
     const shuttleLocationGroup = document.getElementById('shuttle-location-group');
     const sideGroup = document.getElementById('side-group');
-    const guestCounterGroup = document.getElementById('guests-group');
     const dietaryGroup = document.getElementById('dietary-group');
     const carPlateGroup = document.getElementById('carplate-group');
 
@@ -801,7 +799,6 @@ function initializeRSVPForm() {
             attendanceTypeGroup.style.display = 'block';
             shuttleServiceGroup.style.display = 'block';
             sideGroup.style.display = 'block';
-            guestCounterGroup.style.display = 'block';
             dietaryGroup.style.display = 'block';
             carPlateGroup.style.display = 'block';
         } else {
@@ -810,7 +807,6 @@ function initializeRSVPForm() {
             shuttleServiceGroup.style.display = 'none';
             shuttleLocationGroup.style.display = 'none';
             sideGroup.style.display = 'none';
-            guestCounterGroup.style.display = 'none';
             dietaryGroup.style.display = 'none';
             carPlateGroup.style.display = 'none';
             // Reset shuttle service toggle and location
@@ -848,7 +844,6 @@ function initializeRSVPForm() {
     shuttleServiceGroup.style.display = 'none';
     shuttleLocationGroup.style.display = 'none';
     sideGroup.style.display = 'none';
-    guestCounterGroup.style.display = 'none';
     dietaryGroup.style.display = 'none';
     carPlateGroup.style.display = 'none';
     // Message group is always visible (outside form)
@@ -905,15 +900,6 @@ function initializeRSVPForm() {
             
             // Side selection is always valid since both options are valid
             // (Bride = unchecked, Groom = checked)
-            
-            // Validate guest count
-            const guestsSelect = document.getElementById('guests');
-            if (!guestsSelect.value) {
-                guestsSelect.style.borderColor = '#e74c3c';
-                isValid = false;
-            } else {
-                guestsSelect.style.borderColor = '#e9ecef';
-            }
         }
 
         // Phone validation
@@ -955,14 +941,12 @@ function initializeRSVPForm() {
             
             // Convert side checkbox to Bride/Groom
             data.side = document.getElementById('side').checked ? 'Groom' : 'Bride';
-            data.guests = parseInt(data.guests);
         } else {
             // Remove additional fields if not attending
             delete data['attendance-type'];
             delete data['shuttle-service'];
             delete data['shuttle-location'];
             delete data.side;
-            delete data.guests;
         }
 
         // Show loading state
@@ -1000,7 +984,6 @@ function initializeRSVPForm() {
             shuttleServiceGroup.style.display = 'none';
             shuttleLocationGroup.style.display = 'none';
             sideGroup.style.display = 'none';
-            guestCounterGroup.style.display = 'none';
             dietaryGroup.style.display = 'none';
             carPlateGroup.style.display = 'none';
             // Reset checkboxes and radio buttons

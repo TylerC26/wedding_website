@@ -264,6 +264,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     vertical-align: bottom;
     line-height: 0;
+    object-fit: contain;
+}
+
+.wedding-card-svg video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wedding-card-svg img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Gallery Section - Carousel Layout */
@@ -286,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(248, 249, 250, 0.85);
+    background: rgba(184, 212, 184, 0.95);
     z-index: 0;
 }
 
@@ -295,9 +308,17 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+.gallery-section .container,
+.gallery-section .container p,
+.gallery-section .section-subtitle {
+    color: white;
+}
+
 .gallery-section .section-title {
     margin-top: 0;
     padding-top: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Carousel Container - Main wrapper for the carousel */
@@ -491,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     z-index: 0;
 }
 
@@ -750,7 +771,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(248, 249, 250, 0.85);
+    background: rgba(184, 212, 184, 0.95);
     z-index: 0;
 }
 
@@ -759,9 +780,17 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+.transportation-section .container,
+.transportation-section .container p,
+.transportation-section .shuttle-intro {
+    color: white;
+}
+
 .transportation-section .section-title {
     margin-top: 0;
     padding-top: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .transportation-grid {
@@ -902,7 +931,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     z-index: 0;
 }
 
@@ -1061,7 +1090,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(248, 249, 250, 0.85);
+    background: rgba(184, 212, 184, 0.95);
     z-index: 0;
 }
 
@@ -1070,9 +1099,17 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+.photo-upload-section .container,
+.photo-upload-section .container p,
+.photo-upload-section .section-subtitle {
+    color: white;
+}
+
 .photo-upload-section .section-title {
     margin-top: 0;
     padding-top: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .upload-container {
@@ -1345,7 +1382,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     z-index: 0;
 }
 

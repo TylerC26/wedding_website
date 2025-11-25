@@ -70,7 +70,11 @@
     <!-- Wedding Card Section -->
     <section id="wedding-card" class="wedding-card">
         <div class="container">
-            <img src="images/JAN-2.png" alt="Michelle & Tyler Wedding" class="wedding-card-svg">
+            <video class="wedding-card-svg" autoplay loop muted playsinline>
+                <source src="images/hero-video.mp4" type="video/mp4">
+                <!-- Fallback image if video doesn't load -->
+                <img src="images/JAN-2.png" alt="Michelle & Tyler Wedding">
+            </video>
         </div>
     </section>
 
@@ -316,6 +320,8 @@
                             <div class="color-swatch" style="background: #d4c5b9;" title="Champagne"></div>
                             <div class="color-swatch" style="background: #e8d5c4;" title="Blush"></div>
                             <div class="color-swatch" style="background: #8b7355;" title="Earth Tone"></div>
+                            <div class="color-swatch" style="background: #f0ead6;" title="Eggshell"></div>
+                            <div class="color-swatch" style="background: #fffacd;" title="Light Yellow"></div>
                             <div class="color-swatch" style="background: #2b3e50;" title="Navy Blue"></div>
                         </div>
                     </div>
@@ -460,16 +466,6 @@
                             </label>
                         </div>
                     </div>
-                    
-            <div class="form-group inline" id="guests-group">
-                <label for="guests" data-en="Number of Guests *" data-zh="賓客人數 *">Number of Guests *</label>
-                <select id="guests" name="guests" class="guest-dropdown">
-                    <option value="1" data-en="1 Guest" data-zh="1位賓客">1 Guest</option>
-                    <option value="2" data-en="2 Guests" data-zh="2位賓客">2 Guests</option>
-                    <option value="3" data-en="3 Guests" data-zh="3位賓客">3 Guests</option>
-                </select>
-            </div>
-                    
                     <div class="form-group" id="dietary-group">
                         <label for="dietary" data-en="Dietary Restrictions or Allergies" data-zh="飲食限制或過敏">Dietary Restrictions or Allergies</label>
                         <textarea id="dietary" name="dietary" rows="3" placeholder="Please let us know of any dietary restrictions or allergies..." data-placeholder-en="Please let us know of any dietary restrictions or allergies..." data-placeholder-zh="請告知我們任何飲食限制或過敏..."></textarea>
