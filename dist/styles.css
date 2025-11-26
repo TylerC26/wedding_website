@@ -780,10 +780,20 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-.transportation-section .container,
-.transportation-section .container p,
-.transportation-section .shuttle-intro {
+.transportation-section .container {
     color: white;
+}
+
+/* Override white text for card content - cards have white background */
+.transportation-card {
+    color: #2c3e50;
+}
+
+.transportation-card p,
+.transportation-card li,
+.transportation-card span,
+.transportation-card strong {
+    color: #2c3e50;
 }
 
 .transportation-section .section-title {
@@ -813,7 +823,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-10px);
 }
 
-.card-icon {
+.transportation-card .card-icon {
     width: 80px;
     height: 80px;
     background: linear-gradient(135deg, #b8d4b8, #a5c4a5);
@@ -822,7 +832,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
-    color: white;
+    color: white !important;
     font-size: 2rem;
 }
 
@@ -833,6 +843,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .transportation-card .card-details {
     text-align: left;
+}
+
+.transportation-card .card-details p {
+    color: #2c3e50;
+    line-height: 1.6;
 }
 
 .transportation-card .card-details h4 {
@@ -848,7 +863,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
 }
 
-.venue-address {
+.transportation-card .venue-address {
     margin-bottom: 20px;
     color: #666;
     line-height: 1.6;
@@ -866,10 +881,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
 
-.shuttle-intro {
+.transportation-card .shuttle-intro {
     text-align: center;
     margin-bottom: 15px;
     font-weight: 500;
+    color: #2c3e50;
 }
 
 .shuttle-info {
@@ -878,17 +894,21 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
 
-.parking-info li, .shuttle-info li {
+.transportation-card .parking-info li, 
+.transportation-card .shuttle-info li {
     margin: 10px 0;
     color: #666;
 }
 
-.parking-info li i, .shuttle-info li i {
+.transportation-card .parking-info li i, 
+.transportation-card .shuttle-info li i {
     color: #b8d4b8;
     margin-right: 10px;
 }
 
-.parking-note, .shuttle-note, .rideshare-note {
+.transportation-card .parking-note, 
+.transportation-card .shuttle-note, 
+.transportation-card .rideshare-note {
     font-size: 0.9rem;
     color: #7f8c8d;
     margin-top: 15px;
