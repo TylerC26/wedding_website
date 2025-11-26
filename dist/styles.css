@@ -1959,11 +1959,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Reduce hero padding on mobile for navbar */
-    .wedding-card {
-        padding: 70px 0 0 0;
-    }
-    
     .lang-toggle {
         margin-left: auto;
         margin-right: 1rem;
