@@ -5,6 +5,42 @@
     font-style: normal;
 }
 
+.kaisei-decol-regular {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Chinese Language Font */
+body.lang-zh,
+body.lang-zh * {
+    font-family: "Kaisei Decol", "Montserrat", sans-serif;
+}
+
+/* Preserve Font Awesome icons - they need their own font family to display correctly */
+body.lang-zh i.fas,
+body.lang-zh i.far,
+body.lang-zh i.fal,
+body.lang-zh i.fab,
+body.lang-zh i.fa,
+body.lang-zh [class*="fas"],
+body.lang-zh [class*="far"],
+body.lang-zh [class*="fal"],
+body.lang-zh [class*="fab"],
+body.lang-zh [class*="fa-"] {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+body.lang-zh .section-title {
+    font-family: "Whisper", "Kaisei Decol", "Dynalight", cursive;
+}
+
+/* Card subtitles use Chinese font */
+body.lang-zh .transportation-card .card-details h4,
+body.lang-zh .transportation-card .shuttle-subtitle {
+    font-family: "Kaisei Decol", serif;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -42,8 +78,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-    font-family: "Dynalight", cursive;
-    font-size: 3.75rem;
+    font-family: "Whisper", "Dynalight", cursive;
+    font-size: 5rem;
     text-align: center;
     margin-top: 60px;
     margin-bottom: 2rem;
@@ -56,10 +92,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 1.1rem;
     color: #7f8c8d;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
 }
 
 /* Buttons */
@@ -200,6 +238,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Language Toggle Button */
+.music-toggle {
+    background: linear-gradient(135deg, #b8d4b8 0%, #a5c4a5 100%);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.music-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.music-toggle i {
+    color: white;
+    font-size: 1rem;
+}
+
 .lang-toggle {
     background: linear-gradient(135deg, #b8d4b8 0%, #a5c4a5 100%);
     border: none;
@@ -314,11 +379,104 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+/* Override white text for love story card - it has white background */
+.gallery-section .love-story-card,
+.gallery-section .love-story-card *,
+.gallery-section .love-story-content,
+.gallery-section .love-story-content *,
+.gallery-section .love-story-text {
+    color: #2c3e50 !important;
+}
+
 .gallery-section .section-title {
     margin-top: 0;
     padding-top: 60px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Love Story */
+.love-story-text {
+    max-width: 800px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: white;
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.love-story-text p {
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.love-story-text p:last-child {
+    margin-bottom: 0;
+}
+
+.love-story-ending {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem !important;
+    font-weight: 500;
+}
+
+/* Chinese font for love story */
+body.lang-zh .love-story-text {
+    font-family: "Kaisei Decol", serif;
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+body.lang-zh .love-story-text p {
+    font-family: "Kaisei Decol", serif;
+}
+
+body.lang-zh .love-story-ending {
+    font-size: 1.15rem;
+}
+
+/* Responsive Design for Love Story */
+@media (max-width: 768px) {
+    .love-story-text {
+        margin: 30px auto 40px;
+        padding: 0 15px;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    body.lang-zh .love-story-text {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+    
+    .love-story-ending {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .love-story-text {
+        margin: 25px auto 35px;
+        padding: 0 15px;
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+    
+    body.lang-zh .love-story-text {
+        font-size: 0.9rem;
+        line-height: 1.85;
+    }
+    
+    .love-story-ending {
+        font-size: 1.05rem;
+    }
 }
 
 /* Carousel Container - Main wrapper for the carousel */
@@ -524,6 +682,7 @@ h1, h2, h3, h4, h5, h6 {
 .itinerary-section .section-title {
     margin-top: 0;
     padding-top: 60px;
+    font-size: 4.25rem;
 }
 
 .timeline {
@@ -1019,30 +1178,24 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-.color-swatches {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+/* Use Chinese font for "Suggested Theme Colors" title in Chinese mode */
+body.lang-zh .color-palette h4 {
+    font-family: "Kaisei Decol", serif;
 }
 
-.color-swatch {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
+.color-spectrum {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    position: relative;
+    width: 100%;
+    height: 100px;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
 }
 
-.color-swatch:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+.color-spectrum .color-block {
+    flex: 1;
+    height: 100%;
 }
 
 .color-name {
@@ -1080,18 +1233,9 @@ h1, h2, h3, h4, h5, h6 {
         padding: 2rem 1.5rem;
     }
     
-    .color-swatch {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .color-name {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.3rem;
-    }
-    
-    .color-swatches {
-        gap: 0.8rem;
+    .color-spectrum {
+        height: 80px;
+        border-radius: 10px;
     }
 }
 
@@ -1963,8 +2107,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .lang-toggle {
+    .music-toggle {
         margin-left: auto;
+        margin-right: 0.5rem;
+    }
+    
+    .lang-toggle {
+        margin-left: 0;
         margin-right: 1rem;
     }
     
@@ -1990,7 +2139,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .section-title {
-        font-size: 3rem;
+        font-size: 4.5rem;
+    }
+
+    .itinerary-section .section-title {
+        font-size: 3.8rem;
     }
 
     .timeline::before {
@@ -2037,7 +2190,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .section-title {
-        font-size: 2.7rem;
+        font-size: 4rem;
+    }
+
+    .itinerary-section .section-title {
+        font-size: 3.4rem;
     }
 
     .rsvp-form {

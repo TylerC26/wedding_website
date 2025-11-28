@@ -39,6 +39,9 @@ function initializeApp() {
     // Initialize language toggle
     initializeLanguageToggle();
     
+    // Initialize background music
+    initializeBackgroundMusic();
+    
     // Initialize timeline and transportation cards
     initializeTimeline();
     
@@ -115,6 +118,9 @@ function initializeLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
     const langText = langToggle.querySelector('.lang-text');
 
+    // Initialize language class on page load
+    translatePage(currentLang);
+
     langToggle.addEventListener('click', function() {
         if (currentLang === 'en') {
             // Switch to Chinese
@@ -130,12 +136,73 @@ function initializeLanguageToggle() {
     });
 
     function translatePage(lang) {
+        // Set language class on body for CSS styling
+        if (lang === 'zh') {
+            document.body.classList.add('lang-zh');
+            document.body.classList.remove('lang-en');
+        } else {
+            document.body.classList.add('lang-en');
+            document.body.classList.remove('lang-zh');
+        }
+
         // Translate elements with data-en and data-zh attributes
         document.querySelectorAll('[data-en][data-zh]').forEach(element => {
-            if (lang === 'zh') {
-                element.textContent = element.getAttribute('data-zh');
+            const newText = lang === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
+            
+            // Check if the translation contains HTML tags (like <br>)
+            const containsHTML = /<[a-zA-Z][^>]*>/i.test(newText);
+            
+            // Store ALL child nodes (both elements and text) to preserve structure
+            const allChildNodes = Array.from(element.childNodes);
+            const childElements = allChildNodes.filter(node => node.nodeType === 1); // ELEMENT_NODE
+            const childTextNodes = allChildNodes.filter(node => node.nodeType === 3); // TEXT_NODE
+            
+            // Check if element has any child elements (icons, spans, etc.) that need to be preserved
+            const hasChildElements = childElements.length > 0;
+            
+            if (hasChildElements) {
+                // Element has children (icons or other elements) - preserve them
+                if (containsHTML) {
+                    // Translation contains HTML - parse it
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = newText;
+                    const newContent = Array.from(tempDiv.childNodes);
+                    
+                    // Preserve all existing child elements (icons, etc.)
+                    // Remove only text nodes
+                    childTextNodes.forEach(textNode => textNode.remove());
+                    
+                    // Append new content (which may include HTML elements from translation)
+                    newContent.forEach(node => {
+                        element.appendChild(node.cloneNode(true));
+                    });
+                } else {
+                    // Plain text translation - only update text nodes, preserve all child elements
+                    if (childTextNodes.length > 0) {
+                        // Update the first text node, remove others
+                        childTextNodes[0].textContent = newText;
+                        childTextNodes.slice(1).forEach(node => node.remove());
+                    } else {
+                        // No text nodes exist - append text as a new text node
+                        // Try to insert after the last child element, or just append
+                        const lastElement = childElements[childElements.length - 1];
+                        if (lastElement && lastElement.nextSibling) {
+                            // Insert after last element if there's a next sibling
+                            element.insertBefore(document.createTextNode(newText), lastElement.nextSibling);
+                        } else {
+                            // Just append at the end
+                            element.appendChild(document.createTextNode(newText));
+                        }
+                    }
+                }
             } else {
-                element.textContent = element.getAttribute('data-en');
+                // No child elements - safe to replace content directly
+                if (containsHTML) {
+                    element.innerHTML = newText;
+                } else {
+                    // Just replace text content
+                    element.textContent = newText;
+                }
             }
         });
 
@@ -157,6 +224,129 @@ function initializeLanguageToggle() {
             }
         });
     }
+}
+
+// Background Music Functionality
+function initializeBackgroundMusic() {
+    const bgmAudio = document.getElementById('bgm-audio');
+    const musicToggle = document.getElementById('music-toggle');
+    let musicStarted = false;
+    let musicPlaying = false;
+
+    // Try to start music on first user interaction
+    function startMusicOnInteraction() {
+        if (!musicStarted && bgmAudio) {
+            bgmAudio.play().then(() => {
+                musicPlaying = true;
+                musicStarted = true;
+                musicToggle.classList.remove('muted');
+                const icon = musicToggle.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-music';
+                }
+            }).catch(error => {
+                // Autoplay was prevented, user will need to click toggle
+                console.log('Autoplay prevented, waiting for user interaction');
+                musicStarted = true; // Mark as started so we don't keep trying
+            });
+        }
+    }
+
+    // Listen for first user interaction anywhere on the page
+    const interactionEvents = ['click', 'touchstart', 'keydown'];
+    interactionEvents.forEach(eventType => {
+        document.addEventListener(eventType, startMusicOnInteraction, { once: true, passive: true });
+    });
+
+    // Toggle music on button click
+    musicToggle.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent triggering the startMusicOnInteraction
+        
+        if (!musicStarted) {
+            musicStarted = true;
+        }
+
+        if (bgmAudio.paused) {
+            bgmAudio.play().then(() => {
+                musicPlaying = true;
+                musicToggle.classList.remove('muted');
+                // Update icon
+                const icon = musicToggle.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-music';
+                }
+            }).catch(error => {
+                console.error('Error playing music:', error);
+            });
+        } else {
+            bgmAudio.pause();
+            musicPlaying = false;
+            musicToggle.classList.add('muted');
+            // Update icon
+            const icon = musicToggle.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-volume-mute';
+            }
+        }
+    });
+
+    // Check localStorage for saved music preference
+    const savedMusicState = localStorage.getItem('bgm-playing');
+    const icon = musicToggle.querySelector('i');
+    
+    if (savedMusicState === 'true' && bgmAudio) {
+        // Try to resume music, but it may be blocked by browser policy
+        setTimeout(() => {
+            bgmAudio.play().then(() => {
+                musicPlaying = true;
+                musicToggle.classList.remove('muted');
+                if (icon) {
+                    icon.className = 'fas fa-music';
+                }
+            }).catch(error => {
+                // Autoplay prevented, will wait for user interaction
+            });
+        }, 100);
+    } else if (savedMusicState === 'false') {
+        musicToggle.classList.add('muted');
+        if (icon) {
+            icon.className = 'fas fa-volume-mute';
+        }
+    }
+
+    // Save music state when it changes
+    bgmAudio.addEventListener('play', () => {
+        localStorage.setItem('bgm-playing', 'true');
+        musicPlaying = true;
+        musicToggle.classList.remove('muted');
+        if (icon) {
+            icon.className = 'fas fa-music';
+        }
+    });
+
+    bgmAudio.addEventListener('pause', () => {
+        localStorage.setItem('bgm-playing', 'false');
+        musicPlaying = false;
+        musicToggle.classList.add('muted');
+        if (icon) {
+            icon.className = 'fas fa-volume-mute';
+        }
+    });
+
+    // Handle page visibility - pause when page is hidden, resume when visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (musicPlaying && !bgmAudio.paused) {
+                bgmAudio.pause();
+            }
+        } else {
+            if (musicPlaying && savedMusicState === 'true') {
+                bgmAudio.play().catch(() => {
+                    // Play failed, likely due to browser policy
+                });
+            }
+        }
+    });
 }
 
 // Timeline and Transportation card collapsible functionality for mobile

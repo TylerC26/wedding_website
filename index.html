@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Dynalight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Dynalight&family=Whisper&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -56,6 +56,9 @@
                     <a href="#rsvp" class="nav-link" data-en="RSVP" data-zh="回覆出席">RSVP</a>
                 </li>
             </ul>
+            <button class="music-toggle" id="music-toggle" aria-label="Toggle Background Music">
+                <i class="fas fa-music"></i>
+            </button>
             <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
                 <span class="lang-text">中文</span>
             </button>
@@ -83,88 +86,104 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up" data-en="Our Love Story" data-zh="我們的愛情故事">Our Love Story</h2>
             
+            <!-- Love Story -->
+            <div class="love-story-text" data-aos="fade-up" data-aos-delay="200">
+                <p data-en="It all began when high school classmates introduced Michelle and Tyler." data-zh="一切始於高中同學介紹 Michelle 和 Tyler 認識。">It all began when high school classmates introduced Michelle and Tyler.</p>
+                
+                <p data-en="In 2022, when T returned from a business trip and was stuck in a week of hotel quarantine, M left a bag of snacks at the lobby front desk with a little memo: &quot;Tough times don't last, tough people do.&quot; Just a smiley face, no name. T knew it was her, and he still keeps it close to his heart." data-zh="2022年，當 T 出差回來後被困在酒店隔離一週時，M 在前台留下了一袋零食和一個小字條：「困難的日子不會長久，堅強的人卻會。」只有一個笑臉，沒有名字。T 知道是她，至今仍將字條珍藏在心。">In 2022, when T returned from a business trip and was stuck in a week of hotel quarantine, M left a bag of snacks at the lobby front desk with a little memo: "Tough times don't last, tough people do." Just a smiley face, no name. T knew it was her, and he still keeps it close to his heart.</p>
+                
+                <p data-en="When quarantine ended, T took charge again. He drove all the way from the west to the east to pick her up for work and bring her home, rain or shine. Weekends? He planned sweet escapes: cozy dinners, picnics, camping trips with friends, beaches, hikes…anything to light up her smile. Soon, they fell deeply in love. Growing together through every adventure, every late night talk, and every shared dream that made them stronger as one." data-zh="隔離結束後，T 再次主動出擊。他從西到東開車接她上班再送她回家，風雨不改。週末？他計劃甜蜜的逃離：溫馨的晚餐、野餐、與朋友露營、海灘、遠足…任何能讓她微笑的事情。很快，他們深深相愛了。在每一次冒險、每一次深夜談話和每一個共同的夢想中一起成長，變得更加堅強。">When quarantine ended, T took charge again. He drove all the way from the west to the east to pick her up for work and bring her home, rain or shine. Weekends? He planned sweet escapes: cozy dinners, picnics, camping trips with friends, beaches, hikes…anything to light up her smile. Soon, they fell deeply in love. Growing together through every adventure, every late night talk, and every shared dream that made them stronger as one.</p>
+                
+                <p data-en="In 2024 at Niagara Falls Lake, with rainbows blessing the moment and the sea and sky as witnesses, T knelt. M said &quot;Yes&quot; through happy tears." data-zh="2024年，在尼亞加拉瀑布湖邊，彩虹祝福著這一刻，海與天作為見證，T 跪下。M 含著幸福的淚水說「我願意」。">In 2024 at Niagara Falls Lake, with rainbows blessing the moment and the sea and sky as witnesses, T knelt. M said "Yes" through happy tears.</p>
+                
+                <p class="love-story-ending" data-en="January 2026: A lifetime together💖" data-zh="2026年1月：共度一生💖">January 2026: A lifetime together💖</p>
+            </div>
+            
             <!-- Carousel Container -->
             <div class="carousel-container" data-aos="fade-up" data-aos-delay="400">
                 <!-- Carousel Track -->
                 <div class="carousel-track">
                     <!-- Gallery Items - Center image will be scaled and highlighted -->
                     <div class="carousel-slide active">
-                        <img src="images/New/gallery_1.JPG" alt="Wedding moment 1" loading="eager">
+                        <img src="images/New/gallery_19.JPG" alt="Wedding moment 1" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_3.JPG" alt="Wedding moment 2" loading="lazy">
+                        <img src="images/New/gallery_2.JPG" alt="Wedding moment 2" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_4.JPG" alt="Wedding moment 3" loading="lazy">
+                        <img src="images/New/gallery_24.JPG" alt="Wedding moment 3" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_6.JPG" alt="Wedding moment 4" loading="lazy">
+                        <img src="images/New/gallery_26.JPG" alt="Wedding moment 4" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_15.jpg" alt="Wedding moment 5" loading="lazy">
+                        <img src="images/New/gallery_27.JPG" alt="Wedding moment 5" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_25.JPG" alt="Wedding moment 6" loading="lazy">
+                        <img src="images/New/gallery_22.JPG" alt="Wedding moment 6" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_12.jpg" alt="Wedding moment 7" loading="lazy">
+                        <img src="images/New/gallery_30.JPG" alt="Wedding moment 7" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_13.jpg" alt="Wedding moment 8" loading="lazy">
+                        <img src="images/New/gallery_31.JPG" alt="Wedding moment 8" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_14.jpg" alt="Wedding moment 9" loading="lazy">
+                        <img src="images/New/gallery_8.JPG" alt="Wedding moment 9" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_32.JPG" alt="Wedding moment 10" loading="lazy">
+                        <img src="images/New/gallery_9.JPG" alt="Wedding moment 10" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_8.JPG" alt="Wedding moment 11" loading="lazy">
+                        <img src="images/New/gallery_10.JPG" alt="Wedding moment 11" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_9.JPG" alt="Wedding moment 12" loading="lazy">
+                        <img src="images/New/gallery_20.JPG" alt="Wedding moment 12" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_10.JPG" alt="Wedding moment 13" loading="lazy">
+                        <img src="images/New/gallery_23.JPG" alt="Wedding moment 13" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_20.JPG" alt="Wedding moment 14" loading="lazy">
+                        <img src="images/New/gallery_29.JPG" alt="Wedding moment 14" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_23.JPG" alt="Wedding moment 15" loading="lazy">
+                        <img src="images/New/gallery_18.JPG" alt="Wedding moment 15" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_29.JPG" alt="Wedding moment 16" loading="lazy">
+                        <img src="images/New/gallery_33.JPG" alt="Wedding moment 16" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_2.JPG" alt="Wedding moment 17" loading="lazy">
+                        <img src="images/New/gallery_34.JPG" alt="Wedding moment 17" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_18.JPG" alt="Wedding moment 18" loading="lazy">
+                        <img src="images/New/gallery_1.JPG" alt="Wedding moment 18" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_19.JPG" alt="Wedding moment 19" loading="lazy">
+                        <img src="images/New/gallery_3.JPG" alt="Wedding moment 19" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_22.JPG" alt="Wedding moment 20" loading="lazy">
+                        <img src="images/New/gallery_4.JPG" alt="Wedding moment 20" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_24.JPG" alt="Wedding moment 21" loading="lazy">
+                        <img src="images/New/gallery_6.JPG" alt="Wedding moment 21" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_26.JPG" alt="Wedding moment 22" loading="lazy">
+                        <img src="images/New/gallery_15.jpg" alt="Wedding moment 22" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_27.JPG" alt="Wedding moment 23" loading="lazy">
+                        <img src="images/New/gallery_25.JPG" alt="Wedding moment 23" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_28.JPG" alt="Wedding moment 24" loading="lazy">
+                        <img src="images/New/gallery_12.jpg" alt="Wedding moment 24" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_30.JPG" alt="Wedding moment 25" loading="lazy">
+                        <img src="images/New/gallery_13.jpg" alt="Wedding moment 25" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/New/gallery_31.JPG" alt="Wedding moment 26" loading="lazy">
+                        <img src="images/New/gallery_14.jpg" alt="Wedding moment 26" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/New/gallery_32.JPG" alt="Wedding moment 27" loading="lazy">
                     </div>
                 </div>
                 
@@ -199,7 +218,7 @@
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description" data-en="Join us for our wedding ceremony under the love of God. Please arrive 15 minutes early for seating." data-zh="誠邀您參加我們在上帝祝福下的婚禮儀式。請提前15分鐘到達以便就座。">
+                            <p class="timeline-description" data-en="Join us for our wedding ceremony under the love of God. Please arrive 15 minutes early for seating." data-zh="誠邀你參加我們在上帝祝福下的婚禮儀式。請提前15分鐘到達以便就座。">
                                 Join us for our wedding ceremony under the love of God. 
                                 Please arrive 15 minutes early for seating.
                             </p>
@@ -241,15 +260,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-en="Cocktail Hour" data-zh="雞尾酒會">Cocktail Hour</h3>
-                            <p class="timeline-time" data-en="5:30 PM - 8:00 PM" data-zh="下午5:30 - 8:00">5:30 PM - 8:00 PM</p>
+                            <h3 data-en="Cocktail Hour" data-zh="酒會">Cocktail Hour</h3>
+                            <p class="timeline-time" data-en="5:30 PM - 7:00 PM" data-zh="下午5:30 - 7:00">5:30 PM - 7:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span data-en="Marina Suite, Aberdeen Marina Club" data-zh="深灣遊艇會 Marina Suite">Marina Suite, Aberdeen Marina Club</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description" data-en="Enjoy cocktails, hors d'oeuvres, and mingling while we take photos." data-zh="在我們拍照期間，享用雞尾酒、開胃菜並與賓客交流。">
+                            <p class="timeline-description" data-en="Enjoy cocktails, hors d'oeuvres, and mingling while we take photos." data-zh="在我們拍照期間，享用美酒、開胃菜並與賓客交流。">
                                 Enjoy cocktails, hors d'oeuvres, and mingling while we take photos.
                             </p>
                             <div class="timeline-map">
@@ -265,15 +284,15 @@
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3 data-en="Reception Dinner" data-zh="晚宴">Reception Dinner</h3>
-                            <p class="timeline-time" data-en="8:00 PM - 11:00 PM" data-zh="晚上8:00 - 11:00">8:00 PM - 11:00 PM</p>
+                            <h3 data-en="Reception Dinner" data-zh="中式晚宴">Reception Dinner</h3>
+                            <p class="timeline-time" data-en="7:00 PM - 11:00 PM" data-zh="晚上7:00 - 11:00">7:00 PM - 11:00 PM</p>
                             <p class="timeline-location">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span data-en="Grand Ballroom, Aberdeen Marina Club" data-zh="深灣遊艇會大禮堂">Grand Ballroom, Aberdeen Marina Club</span>
                             </p>
                         </div>
                         <div class="timeline-details">
-                            <p class="timeline-description" data-en="Traditional Chinese bouqet, free flow drinks. Please note your dietary preferences in your RSVP." data-zh="傳統中式宴席，無限暢飲。請在回覆時註明您的飲食偏好。">
+                            <p class="timeline-description" data-en="Traditional Chinese bouqet, free flow drinks. Please note your dietary preferences in your RSVP." data-zh="傳統中式宴席，無限暢飲。請在回覆時註明你的飲食偏好。">
                                 Traditional Chinese bouqet, free flow drinks.
                                 Please note your dietary preferences in your RSVP.
                             </p>
@@ -304,7 +323,7 @@
                     <div class="card-details">
                         <h4 class="shuttle-subtitle" data-en="Shuttle Service to Béthanie" data-zh="前往伯大尼接駁服務">Shuttle Service to Béthanie</h4>
                         <ul class="shuttle-info">
-                            <li><strong data-en="Lam Tin MTR Station → Béthanie Chapel (via Admiralty MTR Station):" data-zh="藍田地鐵站 → 伯大尼教堂 （經金鐘地鐵站）：">Lam Tin MTR Station → Béthanie Chapel (via Admiralty MTR Station):</strong></li>
+                            <li><strong data-en="Lam Tin MTR Station → Béthanie Chapel (via Admiralty MTR Station):" data-zh="藍田地鐵站 → 伯大尼教堂<br>（經金鐘地鐵站）：">Lam Tin MTR Station → Béthanie Chapel (via Admiralty MTR Station):</strong></li>
                             <li data-en="Departure at 9:30 AM" data-zh="上午9:30出發">Departure at 9:30 AM</li>
                             <li><strong data-en="Admiralty MTR Station → Béthanie Chapel:" data-zh="金鐘地鐵站 → 伯大尼教堂：">Admiralty MTR Station → Béthanie Chapel:</strong></li>
                             <li data-en="Departure at 10:00 AM" data-zh="上午10:00出發">Departure at 10:00 AM</li>
@@ -347,7 +366,7 @@
                     <div class="card-details">
                         <ul class="parking-info">
                             <li><i class="fas fa-check"></i> <span data-en="Complimentary Self-parking available at Aberdeen Marina Club only" data-zh="僅在深灣遊艇會提供免費自助停車">Complimentary Self-parking available at Aberdeen Marina Club only</span></li>
-                            <li><i class="fas fa-check"></i> <span data-en="Please let us know your car plate number in advance" data-zh="請提前告知您的車牌號碼">Please let us know your car plate number in advance</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Please let us know your car plate number in advance" data-zh="請提前告知你的車牌號碼">Please let us know your car plate number in advance</span></li>
                             <li><i class="fas fa-check"></i> <span data-en="Béthanie Chapel has limited parking spaces, parking is not available for guests." data-zh="伯大尼教堂的停車位有限，不提供賓客停車。">Béthanie Chapel has limited parking spaces, parking is not available for guests.</span></li>
                         </ul>
                     </div>
@@ -368,16 +387,13 @@
                     </div>
                     <div class="color-palette">
                         <h4 data-en="Suggested Theme Colors" data-zh="建議主題顏色">Suggested Theme Colors</h4>
-                        <div class="color-swatches">
-                            <div class="color-swatch" style="background: #b8d4b8;" title="Sage Green"></div>
-                            <div class="color-swatch" style="background: #8ab88a;" title="Mint Green"></div>
-                            <div class="color-swatch" style="background: #2c5f2d;" title="Forest Green"></div>
-                            <div class="color-swatch" style="background: #d4c5b9;" title="Champagne"></div>
-                            <div class="color-swatch" style="background: #e8d5c4;" title="Blush"></div>
-                            <div class="color-swatch" style="background: #8b7355;" title="Earth Tone"></div>
-                            <div class="color-swatch" style="background: #f0ead6;" title="Eggshell"></div>
-                            <div class="color-swatch" style="background: #fffacd;" title="Light Yellow"></div>
-                            <div class="color-swatch" style="background: #2b3e50;" title="Navy Blue"></div>
+                        <div class="color-spectrum">
+                            <div class="color-block" style="background: #fffacd;"></div>
+                            <div class="color-block" style="background: #f0ead6;"></div>
+                            <div class="color-block" style="background: #d4c5b9;"></div>
+                            <div class="color-block" style="background: #b8d4b8;"></div>
+                            <div class="color-block" style="background: #ADD8E6;"></div>
+                            <div class="color-block" style="background: #2b3e50;"></div>
                         </div>
                     </div>
                 </div>
@@ -388,8 +404,8 @@
     <!-- Photo Upload Section -->
     <section id="photo-upload" class="photo-upload-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-en="Share Your Photos" data-zh="分享您的照片">Share Your Photos</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Help us capture all the special moments by uploading your photos from the wedding" data-zh="請上傳您在婚禮上拍攝的照片，幫助我們捕捉所有特別時刻">
+            <h2 class="section-title" data-aos="fade-up" data-en="Share Your Photos" data-zh="分享照片">Share Your Photos</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Help us capture all the special moments by uploading your photos from the wedding" data-zh="請上傳在婚禮上拍攝的照片，幫助我們捕捉所有特別時刻">
                 Help us capture all the special moments by uploading your photos from the wedding
             </p>
             
@@ -397,7 +413,7 @@
                 <div class="upload-area" id="upload-area">
                     <div class="upload-content">
                         <i class="fas fa-cloud-upload-alt"></i>
-                        <h3 data-en="Drop your photos here" data-zh="將照片拖放到此處">Drop your photos here</h3>
+                        <h3 data-en="Drop your photos here" data-zh="將照片上傳到此處">Drop your photos here</h3>
                         <p data-en="or click to browse files" data-zh="或點擊瀏覽文件">or click to browse files</p>
                         <span class="upload-formats" data-en="Supports: JPG, PNG, GIF (Max 10MB each)" data-zh="支援：JPG、PNG、GIF（每個最大10MB）">Supports: JPG, PNG, GIF (Max 10MB each)</span>
                     </div>
@@ -459,7 +475,7 @@
                     </div>
                     
                     <div class="form-group inline">
-                        <label for="attendance" data-en="Will you be attending? *" data-zh="您會出席嗎？*">Will you be attending? *</label>
+                        <label for="attendance" data-en="Will you be attending? *" data-zh="將會出席">Will you be attending? *</label>
                         <div class="attendance-toggle">
                             <input type="checkbox" id="attendance" name="attendance" class="toggle-input">
                             <label for="attendance" class="toggle-label">
@@ -476,17 +492,17 @@
                         <div class="attendance-type-selector">
                             <input type="checkbox" id="attendance-church" name="attendance-type" value="church-ceremony" class="attendance-type-input">
                             <label for="attendance-church" class="attendance-type-label">
-                                <span data-en="Church Ceremony" data-zh="教堂儀式">Church Ceremony</span>
+                                <span data-en="Church Ceremony" data-zh="教堂証婚">Church Ceremony</span>
                             </label>
                             <input type="checkbox" id="attendance-reception" name="attendance-type" value="reception-dinner" class="attendance-type-input">
                             <label for="attendance-reception" class="attendance-type-label">
-                                <span data-en="Reception Dinner" data-zh="晚宴">Reception Dinner</span>
+                                <span data-en="Reception Dinner" data-zh="中式晚宴">Reception Dinner</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="form-group conditional-attendance" id="shuttle-service-group" style="display: none;">
-                        <label for="shuttle-service" data-en="Do you need shuttle service to Béthanie? *" data-zh="需要前往伯大尼的接駁服務嗎？*">Do you need shuttle service to Béthanie? *</label>
+                        <label for="shuttle-service" data-en="Do you need shuttle service to Béthanie? *" data-zh="需要前往伯大尼的接駁服務？*">Do you need shuttle service to Béthanie? *</label>
                         <div class="attendance-toggle">
                             <input type="checkbox" id="shuttle-service" name="shuttle-service" class="toggle-input">
                             <label for="shuttle-service" class="toggle-label">
@@ -498,7 +514,7 @@
                     </div>
                     
                     <div class="form-group conditional-attendance" id="shuttle-location-group" style="display: none;">
-                        <label data-en="Where to board? *" data-zh="在哪裡上車？*">Where to board? *</label>
+                        <label data-en="Where to board? *" data-zh="上車地點">Where to board? *</label>
                         <div class="shuttle-location-selector">
                             <input type="radio" id="shuttle-admiralty" name="shuttle-location" value="admiralty" class="shuttle-location-input">
                             <label for="shuttle-admiralty" class="shuttle-location-label">
@@ -528,7 +544,7 @@
                     
                     <div class="form-group" id="carplate-group">
                         <label for="carplate" data-en="Car Plate Number (if driving)" data-zh="車牌號碼（如駕車）">Car Plate Number (if driving)</label>
-                        <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)" data-placeholder-en="Enter your car plate number (optional)" data-placeholder-zh="輸入您的車牌號碼（可選）">
+                        <input type="text" id="carplate" name="carplate" placeholder="Enter your car plate number (optional)" data-placeholder-en="Enter your car plate number (optional)" data-placeholder-zh="輸入你的車牌號碼（可選）">
                     </div>
                     
                     <button type="submit" class="btn btn-primary btn-large">
@@ -583,10 +599,15 @@
             <div class="modal-body">
                 <i class="fas fa-check-circle"></i>
                 <h3 data-en="RSVP Received!" data-zh="已收到回覆！">RSVP Received!</h3>
-                <p data-en="Thank you for your response. We can't wait to celebrate with you!" data-zh="感謝您的回覆。我們期待與您一起慶祝！">Thank you for your response. We can't wait to celebrate with you!</p>
+                <p data-en="Thank you for your response. We can't wait to celebrate with you!" data-zh="感謝你的回覆。我們期待與你一起慶祝！">Thank you for your response. We can't wait to celebrate with you!</p>
             </div>
         </div>
     </div>
+
+    <!-- Background Music -->
+    <audio id="bgm-audio" loop preload="auto">
+        <source src="soundtrack/bgm.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
