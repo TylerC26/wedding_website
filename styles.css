@@ -395,6 +395,11 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Reduce Chinese title font size by 20% */
+body.lang-zh .gallery-section .section-title {
+    font-size: 4rem; /* 5rem * 0.8 = 4rem (20% reduction) */
+}
+
 /* Love Story */
 .love-story-text {
     max-width: 800px;
@@ -2146,6 +2151,10 @@ body.lang-zh .color-palette h4 {
         font-size: 3.8rem;
     }
 
+    body.lang-zh .gallery-section .section-title {
+        font-size: 3.6rem; /* 4.5rem * 0.8 = 3.6rem (20% reduction) */
+    }
+
     .timeline::before {
         left: 30px;
     }
@@ -2195,6 +2204,10 @@ body.lang-zh .color-palette h4 {
 
     .itinerary-section .section-title {
         font-size: 3.4rem;
+    }
+
+    body.lang-zh .gallery-section .section-title {
+        font-size: 3.2rem; /* 4rem * 0.8 = 3.2rem (20% reduction) */
     }
 
     .rsvp-form {
