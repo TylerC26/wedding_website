@@ -230,25 +230,51 @@ function initializeLanguageToggle() {
 function initializeBackgroundMusic() {
     const bgmAudio = document.getElementById('bgm-audio');
     const musicToggle = document.getElementById('music-toggle');
+    
+    // Check if elements exist
+    if (!bgmAudio || !musicToggle) {
+        console.warn('Background music elements not found');
+        return;
+    }
+    
     let musicStarted = false;
     let musicPlaying = false;
+    let wasPlayingBeforeHidden = false;
+
+    // Set initial volume (50%)
+    bgmAudio.volume = 0.5;
+
+    // Update icon function
+    function updateMusicIcon(isPlaying) {
+        const icon = musicToggle.querySelector('i');
+        if (icon) {
+            if (isPlaying) {
+                icon.className = 'fas fa-music';
+                musicToggle.classList.remove('muted');
+            } else {
+                icon.className = 'fas fa-volume-mute';
+                musicToggle.classList.add('muted');
+            }
+        }
+    }
 
     // Try to start music on first user interaction
     function startMusicOnInteraction() {
         if (!musicStarted && bgmAudio) {
-            bgmAudio.play().then(() => {
-                musicPlaying = true;
+            const savedState = localStorage.getItem('bgm-playing');
+            if (savedState === 'true') {
+                bgmAudio.play().then(() => {
+                    musicPlaying = true;
+                    musicStarted = true;
+                    updateMusicIcon(true);
+                }).catch(error => {
+                    console.log('Autoplay prevented:', error);
+                    musicStarted = true;
+                    updateMusicIcon(false);
+                });
+            } else {
                 musicStarted = true;
-                musicToggle.classList.remove('muted');
-                const icon = musicToggle.querySelector('i');
-                if (icon) {
-                    icon.className = 'fas fa-music';
-                }
-            }).catch(error => {
-                // Autoplay was prevented, user will need to click toggle
-                console.log('Autoplay prevented, waiting for user interaction');
-                musicStarted = true; // Mark as started so we don't keep trying
-            });
+            }
         }
     }
 
@@ -260,7 +286,8 @@ function initializeBackgroundMusic() {
 
     // Toggle music on button click
     musicToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent triggering the startMusicOnInteraction
+        e.stopPropagation();
+        e.preventDefault();
         
         if (!musicStarted) {
             musicStarted = true;
@@ -269,83 +296,70 @@ function initializeBackgroundMusic() {
         if (bgmAudio.paused) {
             bgmAudio.play().then(() => {
                 musicPlaying = true;
-                musicToggle.classList.remove('muted');
-                // Update icon
-                const icon = musicToggle.querySelector('i');
-                if (icon) {
-                    icon.className = 'fas fa-music';
-                }
+                updateMusicIcon(true);
             }).catch(error => {
                 console.error('Error playing music:', error);
+                updateMusicIcon(false);
             });
         } else {
             bgmAudio.pause();
             musicPlaying = false;
-            musicToggle.classList.add('muted');
-            // Update icon
-            const icon = musicToggle.querySelector('i');
-            if (icon) {
-                icon.className = 'fas fa-volume-mute';
-            }
+            updateMusicIcon(false);
         }
     });
 
     // Check localStorage for saved music preference
     const savedMusicState = localStorage.getItem('bgm-playing');
-    const icon = musicToggle.querySelector('i');
     
-    if (savedMusicState === 'true' && bgmAudio) {
-        // Try to resume music, but it may be blocked by browser policy
-        setTimeout(() => {
-            bgmAudio.play().then(() => {
-                musicPlaying = true;
-                musicToggle.classList.remove('muted');
-                if (icon) {
-                    icon.className = 'fas fa-music';
-                }
-            }).catch(error => {
-                // Autoplay prevented, will wait for user interaction
-            });
-        }, 100);
-    } else if (savedMusicState === 'false') {
-        musicToggle.classList.add('muted');
-        if (icon) {
-            icon.className = 'fas fa-volume-mute';
-        }
+    // Set initial icon state
+    if (savedMusicState === 'false') {
+        updateMusicIcon(false);
     }
 
     // Save music state when it changes
     bgmAudio.addEventListener('play', () => {
         localStorage.setItem('bgm-playing', 'true');
         musicPlaying = true;
-        musicToggle.classList.remove('muted');
-        if (icon) {
-            icon.className = 'fas fa-music';
-        }
+        updateMusicIcon(true);
     });
 
     bgmAudio.addEventListener('pause', () => {
         localStorage.setItem('bgm-playing', 'false');
         musicPlaying = false;
-        musicToggle.classList.add('muted');
-        if (icon) {
-            icon.className = 'fas fa-volume-mute';
-        }
+        updateMusicIcon(false);
+    });
+
+    // Handle audio errors
+    bgmAudio.addEventListener('error', (e) => {
+        console.error('Audio error:', e);
+        console.error('Audio error details:', bgmAudio.error);
+        updateMusicIcon(false);
     });
 
     // Handle page visibility - pause when page is hidden, resume when visible
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-            if (musicPlaying && !bgmAudio.paused) {
+            if (!bgmAudio.paused) {
+                wasPlayingBeforeHidden = true;
                 bgmAudio.pause();
             }
         } else {
-            if (musicPlaying && savedMusicState === 'true') {
+            if (wasPlayingBeforeHidden && localStorage.getItem('bgm-playing') === 'true') {
                 bgmAudio.play().catch(() => {
                     // Play failed, likely due to browser policy
+                    wasPlayingBeforeHidden = false;
                 });
             }
         }
+    });
+
+    // Log audio ready state for debugging
+    bgmAudio.addEventListener('canplaythrough', () => {
+        console.log('Audio ready to play');
+    });
+
+    bgmAudio.addEventListener('loadeddata', () => {
+        console.log('Audio data loaded');
     });
 }
 

@@ -12,7 +12,7 @@ echo "Copying files to dist directory..."
 mkdir -p dist
 
 # Copy files first
-cp -r styles.css script.js manifest.json sw.js images dist/ 2>/dev/null || true
+cp -r styles.css script.js manifest.json sw.js images soundtrack dist/ 2>/dev/null || true
 
 # Copy index.html and replace cache version for both CSS and JS
 # Replace existing version parameter with new version
