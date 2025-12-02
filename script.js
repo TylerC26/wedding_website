@@ -1,3 +1,45 @@
+// Force cache clearing on page load
+(function() {
+    // Version number - increment this to force cache clear for all users
+    const SITE_VERSION = '1.0.1';
+    const STORED_VERSION = localStorage.getItem('site-version');
+    
+    // Check if version has changed or if force reload flag is set
+    if (STORED_VERSION !== SITE_VERSION || sessionStorage.getItem('force-reload') === 'true') {
+        console.log('Version changed or force reload detected. Clearing cache...');
+        
+        // Clear all localStorage except music preference
+        const musicState = localStorage.getItem('bgm-playing');
+        localStorage.clear();
+        if (musicState) {
+            localStorage.setItem('bgm-playing', musicState);
+        }
+        
+        // Store new version
+        localStorage.setItem('site-version', SITE_VERSION);
+        
+        // Clear sessionStorage force reload flag
+        sessionStorage.removeItem('force-reload');
+        
+        // Clear service worker cache if available
+        if ('caches' in window) {
+            caches.keys().then(function(names) {
+                for (let name of names) {
+                    caches.delete(name);
+                }
+            });
+        }
+        
+        // Force hard reload if not already reloading
+        if (!sessionStorage.getItem('reloading')) {
+            sessionStorage.setItem('reloading', 'true');
+            window.location.reload(true);
+        } else {
+            sessionStorage.removeItem('reloading');
+        }
+    }
+})();
+
 // Firebase Configuration
 // Replace with your actual Firebase config from Step 3
 const firebaseConfig = {
