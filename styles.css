@@ -79,13 +79,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
     font-family: "Whisper", "Dynalight", cursive;
-    font-size: 5rem;
+    font-size: clamp(2.2rem, 7vw, 5rem);
     text-align: center;
     margin-top: 60px;
     margin-bottom: 2rem;
     color: #8ab88a;
     font-weight: 400;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .section-subtitle {
@@ -397,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reduce Chinese title font size by 20% */
 body.lang-zh .gallery-section .section-title {
-    font-size: 4rem; /* 5rem * 0.8 = 4rem (20% reduction) */
+    font-size: clamp(1.6rem, 5.6vw, 4rem); /* 20% reduction from base */
 }
 
 /* Love Story */
@@ -687,7 +690,7 @@ body.lang-zh .love-story-ending {
 .itinerary-section .section-title {
     margin-top: 0;
     padding-top: 60px;
-    font-size: 4.25rem;
+    font-size: clamp(1.7rem, 6vw, 4.25rem);
 }
 
 .timeline {
@@ -1006,12 +1009,14 @@ body.lang-zh .love-story-ending {
 }
 
 .transportation-card .card-details {
-    text-align: left;
+    text-align: center;
 }
 
 .transportation-card .card-details p {
     color: #2c3e50;
     line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .transportation-card .card-details h4 {
@@ -1019,12 +1024,31 @@ body.lang-zh .love-story-ending {
     font-size: 1.3rem;
     color: #8ab88a;
     margin-top: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: 600;
 }
 
 .transportation-card .card-details h4:first-child {
     margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.transportation-card .shuttle-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.transportation-card .shuttle-section-title:first-child {
+    margin-top: 0;
+}
+
+body.lang-zh .transportation-card .shuttle-section-title {
+    font-family: "Kaisei Decol", serif;
 }
 
 .transportation-card .shuttle-subtitle {
@@ -2144,15 +2168,16 @@ body.lang-zh .color-palette h4 {
     }
 
     .section-title {
-        font-size: 4.5rem;
+        font-size: clamp(2.8rem, 8vw, 4.5rem);
+        padding: 0 15px;
     }
 
     .itinerary-section .section-title {
-        font-size: 3.8rem;
+        font-size: clamp(2.4rem, 7vw, 3.8rem);
     }
 
     body.lang-zh .gallery-section .section-title {
-        font-size: 3.6rem; /* 4.5rem * 0.8 = 3.6rem (20% reduction) */
+        font-size: clamp(2.2rem, 6.4vw, 3.6rem); /* 20% reduction */
     }
 
     .timeline::before {
@@ -2199,15 +2224,16 @@ body.lang-zh .color-palette h4 {
     }
 
     .section-title {
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 7.5vw, 4rem);
+        padding: 0 10px;
     }
 
     .itinerary-section .section-title {
-        font-size: 3.4rem;
+        font-size: clamp(2.1rem, 6.5vw, 3.4rem);
     }
 
     body.lang-zh .gallery-section .section-title {
-        font-size: 3.2rem; /* 4rem * 0.8 = 3.2rem (20% reduction) */
+        font-size: clamp(2rem, 6vw, 3.2rem); /* 20% reduction */
     }
 
     .rsvp-form {
