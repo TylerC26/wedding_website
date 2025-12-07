@@ -50,10 +50,10 @@
                     <a href="#dress-code" class="nav-link" data-en="Dress Code" data-zh="服裝">Dress Code</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#photo-upload" class="nav-link" data-en="Upload Photos" data-zh="上傳照片">Upload Photos</a>
+                    <a href="#rsvp" class="nav-link" data-en="RSVP" data-zh="回覆出席">RSVP</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#rsvp" class="nav-link" data-en="RSVP" data-zh="回覆出席">RSVP</a>
+                    <a href="#photo-upload" class="nav-link" data-en="Upload Photos" data-zh="上傳照片">Upload Photos</a>
                 </li>
             </ul>
             <button class="music-toggle" id="music-toggle" aria-label="Toggle Background Music">
@@ -407,53 +407,6 @@
         </div>
     </section>
 
-    <!-- Photo Upload Section -->
-    <section id="photo-upload" class="photo-upload-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-en="Share Your Photos" data-zh="分享照片">Share Your Photos</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Help us capture all the special moments by uploading your photos from the wedding" data-zh="請上傳在婚禮上拍攝的照片，幫助我們捕捉所有特別時刻">
-                Help us capture all the special moments by uploading your photos from the wedding
-            </p>
-            
-                <div class="upload-container" data-aos="fade-up" data-aos-delay="400">
-                <div class="upload-area" id="upload-area">
-                    <div class="upload-content">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <h3 data-en="Drop your photos here" data-zh="將照片上傳到此處">Drop your photos here</h3>
-                        <p data-en="or click to browse files" data-zh="或點擊瀏覽文件">or click to browse files</p>
-                        <span class="upload-formats" data-en="Supports: JPG, PNG, GIF (Max 10MB each)" data-zh="支援：JPG、PNG、GIF（每個最大10MB）">Supports: JPG, PNG, GIF (Max 10MB each)</span>
-                    </div>
-                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
-                </div>
-                
-                <div class="selected-photos-preview" id="selected-photos-preview" style="display: none;">
-                    <h4 data-en="Selected Photos:" data-zh="已選擇的照片：">Selected Photos:</h4>
-                    <div class="selected-photos-grid" id="selected-photos-grid">
-                        <!-- Selected photo previews will appear here -->
-                    </div>
-                    <div class="upload-actions">
-                        <button class="btn btn-secondary" id="cancel-upload" data-en="Cancel" data-zh="取消">Cancel</button>
-                        <button class="btn btn-primary" id="confirm-upload">
-                            <i class="fas fa-upload"></i>
-                            <span data-en="Upload Photos" data-zh="上傳照片">Upload Photos</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="upload-progress" id="upload-progress" style="display: none;">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                    <span class="progress-text" id="progress-text">0%</span>
-                </div>
-                
-                <div class="uploaded-photos" id="uploaded-photos">
-                    <!-- Uploaded photos will appear here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section">
         <div class="container">
@@ -558,6 +511,53 @@
                         <span data-en="Send RSVP" data-zh="提交回覆">Send RSVP</span>
                     </button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Upload Section -->
+    <section id="photo-upload" class="photo-upload-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-en="Share Your Photos" data-zh="分享照片">Share Your Photos</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-en="Help us capture all the special moments by uploading your photos from the wedding" data-zh="請上傳在婚禮上拍攝的照片，幫助我們捕捉所有特別時刻">
+                Help us capture all the special moments by uploading your photos from the wedding
+            </p>
+            
+                <div class="upload-container" data-aos="fade-up" data-aos-delay="400">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3 data-en="Drop your photos here" data-zh="將照片上傳到此處">Drop your photos here</h3>
+                        <p data-en="or click to browse files" data-zh="或點擊瀏覽文件">or click to browse files</p>
+                        <span class="upload-formats" data-en="Supports: JPG, PNG, GIF (Max 10MB each)" data-zh="支援：JPG、PNG、GIF（每個最大10MB）">Supports: JPG, PNG, GIF (Max 10MB each)</span>
+                    </div>
+                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="selected-photos-preview" id="selected-photos-preview" style="display: none;">
+                    <h4 data-en="Selected Photos:" data-zh="已選擇的照片：">Selected Photos:</h4>
+                    <div class="selected-photos-grid" id="selected-photos-grid">
+                        <!-- Selected photo previews will appear here -->
+                    </div>
+                    <div class="upload-actions">
+                        <button class="btn btn-secondary" id="cancel-upload" data-en="Cancel" data-zh="取消">Cancel</button>
+                        <button class="btn btn-primary" id="confirm-upload">
+                            <i class="fas fa-upload"></i>
+                            <span data-en="Upload Photos" data-zh="上傳照片">Upload Photos</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="upload-progress" id="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">0%</span>
+                </div>
+                
+                <div class="uploaded-photos" id="uploaded-photos">
+                    <!-- Uploaded photos will appear here -->
+                </div>
             </div>
         </div>
     </section>
