@@ -693,6 +693,65 @@ body.lang-zh .love-story-ending {
     font-size: clamp(1.7rem, 6vw, 4.25rem);
 }
 
+/* Wedding Date Card */
+.wedding-date-card {
+    position: relative;
+    width: fit-content;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.wedding-date-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #b8d4b8, #a5c4a5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(184, 212, 184, 0.3);
+    flex-shrink: 0;
+}
+
+.wedding-date-content {
+    flex: 1;
+    text-align: center;
+}
+
+.wedding-date-content h3 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+body.lang-zh .wedding-date-content h3 {
+    font-family: "Kaisei Decol", serif;
+}
+
+@media (max-width: 768px) {
+    .wedding-date-card {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 25px;
+        margin-bottom: 40px;
+    }
+    
+    .wedding-date-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
 .timeline {
     position: relative;
     max-width: 800px;
